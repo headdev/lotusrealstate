@@ -10,6 +10,15 @@
       "StackName": "amplify-lotusapp-dev-121610",
       "StackId": "arn:aws:cloudformation:us-east-1:528471089703:stack/amplify-lotusapp-dev-121610/7286cad0-3221-11ee-b9ff-0ad34512f611",
       "AmplifyAppId": "d2cun3zud38szh"
+    },
+    "categories": {
+      "auth": {
+        "lotusapp9bc85fb3": {},
+        "lotusapp2ee2f779": {}
+      },
+      "api": {
+        "lotusapp": {}
+      }
     }
   }
 }

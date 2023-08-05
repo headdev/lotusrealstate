@@ -1,5 +1,11 @@
 {
   "AppSyncApiName": "lotusapp",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authlotusapp2ee2f779",
+      "Outputs.UserPoolId"
+    ]
+  }
 }

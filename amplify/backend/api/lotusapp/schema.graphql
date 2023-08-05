@@ -1,59 +1,69 @@
-type User @model @auth(rules: [
-  { allow: owner }, # Permite que el propietario del recurso realice todas las operaciones (solo para usuarios autenticados)
-  { allow: public, operations: [read] } # Permite que cualquier usuario realice operaciones de lectura
-]) {
-  id: ID!
-  email: String! @index(name: "byEmail")
-  phone: String
-}
-
-type Property @model @key(name: "byId", fields: ["id"]) @key(name: "byTitle", fields: ["title"]) {
+type Property @model @auth(rules: [{allow: owner}]) {
   id: ID!
   title: String!
-  description: String
-  address: String!
+  shortDescription: String!
+  longDescription: String
+  type: PropertyType!
+  price: Float!
+  rentPerMonth: Float
+  rentPerDay: Float
+  
+  owner: User @hasOne
+  agent: Agent @hasOne
+
+  mainImage: String
+  images: [String]
+
+  location: Location @hasOne
+
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime
 }
 
-type Realtor @model {
+type User @model @auth(rules: [{allow: owner}]) {
   id: ID!
-  email: String!
-  phone: String
+  name: String! 
+  email: AWSEmail!
+  address: String
+  
+  boughtProperties: [Property] @hasMany
+  rentedProperties: [Rental] @hasMany
+
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime
 }
 
-
-type Mutation {
-  createUser(input: CreateUserInput!): User
-  createRealtor(input: CreateRealtorInput!): Realtor
-}
-
-input CreateUserInput {
-  email: String!
-  phone: String
-}
-
-input CreateRealtorInput {
-  email: String!
-  phone: String
-}
-
-type Review @model {
+type Agent @model @auth(rules: [{allow: private}]) {
   id: ID!
-  rating: Int!
-  comment: String
+  name: String!
+
+  properties: [Property] @hasMany
+
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime
+}
+
+enum PropertyType {
+  HOUSE
+  CABIN
+  RANCH
+  APARTMENT
+}
+
+type Location @model {
+  id: ID!
+  address: String! 
+  lat: Float!
+  lon: Float!
+}
+
+type Rental @model {
+  id: ID!
   property: Property @hasOne
-}
+  user: User @hasOne
+  nights: Int!
+  paidAmount: Float!
 
-type Query {
-  listProperties: [Property]
-  getProperty(id: ID!): Property
-
-  listRealtors: [Realtor]
-  getRealtor(id: ID!): Realtor
-}
-
-type Subscription {
-  onCreateProperty(id: ID, title: String): Property
-    @aws_subscribe(mutations: ["createProperty"])
-  onUpdateProperty(id: ID, title: String): Property
-    @aws_subscribe(mutations: ["updateProperty"])
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime
 }
