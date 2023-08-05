@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-lotusapp-dev-121610-authRole",
+      "UnauthRoleArn": "arn:aws:iam::528471089703:role/amplify-lotusapp-dev-121610-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::528471089703:role/amplify-lotusapp-dev-121610-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-lotusapp-dev-121610-deployment",
+      "UnauthRoleName": "amplify-lotusapp-dev-121610-unauthRole",
+      "StackName": "amplify-lotusapp-dev-121610",
+      "StackId": "arn:aws:cloudformation:us-east-1:528471089703:stack/amplify-lotusapp-dev-121610/7286cad0-3221-11ee-b9ff-0ad34512f611",
+      "AmplifyAppId": "d2cun3zud38szh"
+    }
+  }
+}

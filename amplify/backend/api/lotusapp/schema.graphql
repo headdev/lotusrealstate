@@ -1,0 +1,59 @@
+type User @model @auth(rules: [
+  { allow: owner }, # Permite que el propietario del recurso realice todas las operaciones (solo para usuarios autenticados)
+  { allow: public, operations: [read] } # Permite que cualquier usuario realice operaciones de lectura
+]) {
+  id: ID!
+  email: String! @index(name: "byEmail")
+  phone: String
+}
+
+type Property @model @key(name: "byId", fields: ["id"]) @key(name: "byTitle", fields: ["title"]) {
+  id: ID!
+  title: String!
+  description: String
+  address: String!
+}
+
+type Realtor @model {
+  id: ID!
+  email: String!
+  phone: String
+}
+
+
+type Mutation {
+  createUser(input: CreateUserInput!): User
+  createRealtor(input: CreateRealtorInput!): Realtor
+}
+
+input CreateUserInput {
+  email: String!
+  phone: String
+}
+
+input CreateRealtorInput {
+  email: String!
+  phone: String
+}
+
+type Review @model {
+  id: ID!
+  rating: Int!
+  comment: String
+  property: Property @hasOne
+}
+
+type Query {
+  listProperties: [Property]
+  getProperty(id: ID!): Property
+
+  listRealtors: [Realtor]
+  getRealtor(id: ID!): Realtor
+}
+
+type Subscription {
+  onCreateProperty(id: ID, title: String): Property
+    @aws_subscribe(mutations: ["createProperty"])
+  onUpdateProperty(id: ID, title: String): Property
+    @aws_subscribe(mutations: ["updateProperty"])
+}
