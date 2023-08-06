@@ -43,10 +43,11 @@ import useWindowSize from "hooks/useWindowResize";
 import PageHome3 from "containers/PageHome/PageHome3";
 import ListingStayDetailPage from "containers/ListingDetailPage/listing-stay-detail/ListingStayDetailPage";
 import ListingExperiencesDetailPage from "containers/ListingDetailPage/listing-experiences-detail/ListingExperiencesDetailPage";
-import ListingExperiencesMapPage from "containers/ListingExperiencesPage/ListingExperiencesMapPage";
+
 
 export const pages: Page[] = [
-  { path: "/", exact: true, component: PageHome },
+  //{ path: "/", exact: true, component: PageHome }, // home anulado
+  { path: "/", exact: true, component: ListingExperiencesMapPage },// home cambiado para listing experiences map 
   { path: "/#", exact: true, component: PageHome },
   { path: "/home-1-header-2", exact: true, component: PageHome },
   { path: "/home-2", component: PageHome2 },
