@@ -21,7 +21,7 @@ const ListingExperiencesMapPage: FC<ListingExperiencesMapPageProps> = ({
       data-nc-id="ListingExperiencesMapPage"
     >
       <Helmet>
-        <title> Lotus revenue :Dapp Real state </title>
+        <title> Lotus revenue - Dapp Real state </title>
       </Helmet>
       <BgGlassmorphism />
 
