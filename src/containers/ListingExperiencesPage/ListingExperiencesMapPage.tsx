@@ -33,7 +33,7 @@ const ListingExperiencesMapPage: FC<ListingExperiencesMapPageProps> = ({
           listingType={
             <>
               <i className="text-2xl las la-umbrella-beach"></i>
-              <span className="ml-2.5">1599 experiences</span>
+              <span className="ml-2.5">+56 Proyectos inmobiliarios</span>
             </>
           }
         />
