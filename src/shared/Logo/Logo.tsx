@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logoImg from "images/logo.png";
+import logoImg from "images/logolotus.png";
 import logoLightImg from "images/logo-light.png";
 import LogoSvgLight from "./LogoSvgLight";
 import LogoSvg from "./LogoSvg";

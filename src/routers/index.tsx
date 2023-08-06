@@ -9,7 +9,6 @@ import ListingStayPage from "containers/ListingStayPage/ListingStayPage";
 import ListingStayMapPage from "containers/ListingStayPage/ListingStayMapPage";
 import ListingExperiencesPage from "containers/ListingExperiencesPage/ListingExperiencesPage";
 import ListingExperiencesMapPage from "containers/ListingExperiencesPage/ListingExperiencesMapPage";
-import ListingCarMapPage from "containers/ListingCarPage/ListingCarMapPage";
 import CheckOutPage from "containers/CheckOutPage/CheckOutPage";
 import PayPage from "containers/PayPage/PayPage";
 import AuthorPage from "containers/AuthorPage/AuthorPage";
@@ -43,8 +42,8 @@ import FooterNav from "components/FooterNav";
 import useWindowSize from "hooks/useWindowResize";
 import PageHome3 from "containers/PageHome/PageHome3";
 import ListingStayDetailPage from "containers/ListingDetailPage/listing-stay-detail/ListingStayDetailPage";
-import ListingCarDetailPage from "containers/ListingDetailPage/listing-car-detail/ListingCarDetailPage";
 import ListingExperiencesDetailPage from "containers/ListingDetailPage/listing-experiences-detail/ListingExperiencesDetailPage";
+import ListingExperiencesMapPage from "containers/ListingExperiencesPage/ListingExperiencesMapPage";
 
 export const pages: Page[] = [
   { path: "/", exact: true, component: PageHome },
@@ -69,10 +68,6 @@ export const pages: Page[] = [
     path: "/listing-experiences-detail",
     component: ListingExperiencesDetailPage,
   },
-  //
-  { path: "/listing-car", component: ListingCarPage },
-  { path: "/listing-car-map", component: ListingCarMapPage },
-  { path: "/listing-car-detail", component: ListingCarDetailPage },
   //
   { path: "/listing-real-estate-map", component: ListingRealEstateMapPage },
   { path: "/listing-real-estate", component: ListingRealEstatePage },
