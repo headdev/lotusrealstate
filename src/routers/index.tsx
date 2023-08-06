@@ -46,7 +46,7 @@ import ListingExperiencesDetailPage from "containers/ListingDetailPage/listing-e
 
 export const pages: Page[] = [
   //{ path: "/", exact: true, component: PageHome }, // home anulado
-  { path: "/", exact: true, component: ListingExperiencesMapPage },// home cambiado para listing experiences map 
+  { path: "/", exact: true, component: ListingRealEstateMapPage },// home cambiado para listing experiences map 
   { path: "/#", exact: true, component: PageHome },
   { path: "/home-1-header-2", exact: true, component: PageHome },
   { path: "/home-2", component: PageHome2 },

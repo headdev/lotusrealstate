@@ -159,8 +159,8 @@ export const NAVIGATION_DEMO: NavItemType[] = [
   {
     id: ncNanoId(),
     href: "/",
-    name: "Home",
-    type: "dropdown",
+    name: "Lotus",
+    //type: "megaMenu",
     children: demoChildMenus,
     isNew: true,
   },

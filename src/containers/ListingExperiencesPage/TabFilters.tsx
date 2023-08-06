@@ -84,7 +84,7 @@ const TabFilters = () => {
                 open ? "!border-primary-500 " : ""
               }`}
             >
-              <span>Type of experiences</span>
+              <span>Tipo de propiedad</span>
               <i className="las la-angle-down ml-2"></i>
             </Popover.Button>
             <Transition

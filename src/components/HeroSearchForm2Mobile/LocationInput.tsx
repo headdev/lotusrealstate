@@ -13,7 +13,7 @@ const LocationInput: FC<Props> = ({
   onChange = () => {},
   className = "",
   defaultValue = "United States",
-  headingText = "Where to?",
+  headingText = "Barrio o zona",
 }) => {
   const [value, setValue] = useState("");
   const containerRef = useRef(null);
