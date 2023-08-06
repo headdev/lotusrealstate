@@ -61,14 +61,6 @@ const megaMenuDemo: MegamenuItem[] = [
 ];
 
 const demoChildMenus: NavItemType[] = [
-  
-
-  {
-    id: ncNanoId(),
-    href: "/home-3",
-    name: "Home - 3",
-    isNew: true,
-  },
 ];
 
 const otherPageChildMenus: NavItemType[] = [

@@ -12,13 +12,13 @@ export interface WidgetFooterMenu {
 const widgetMenus: WidgetFooterMenu[] = [
   {
     id: "5",
-    title: "Getting started",
+    title: "Lotus Revenue",
     menus: [
-      { href: "#", label: "Installation" },
-      { href: "#", label: "Release Notes" },
-      { href: "#", label: "Upgrade Guide" },
-      { href: "#", label: "Browser Support" },
-      { href: "#", label: "Editor Support" },
+      { href: "#", label: "Real state Dapp" },
+      { href: "#", label: "Fraction" },
+      { href: "#", label: "Proyects" },
+      { href: "#", label: "Offices" },
+      { href: "#", label: "Contact" },
     ],
   },
   {
