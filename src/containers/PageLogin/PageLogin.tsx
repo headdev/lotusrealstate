@@ -1,5 +1,7 @@
 import React, { FC } from "react";
 import facebookSvg from "images/Facebook.svg";
+import { Amplify, Auth } from 'aws-amplify'; //importar amplify para login 
+import { AmplifyAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'; importar amplify para login 
 import twitterSvg from "images/Twitter.svg";
 import googleSvg from "images/Google.svg";
 import { Helmet } from "react-helmet";

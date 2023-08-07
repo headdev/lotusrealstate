@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC,useEffect } from "react";
 import BackgroundSection from "components/BackgroundSection/BackgroundSection";
 import BgGlassmorphism from "components/BgGlassmorphism/BgGlassmorphism";
 import SectionGridAuthorBox from "components/SectionGridAuthorBox/SectionGridAuthorBox";
@@ -8,22 +8,30 @@ import SectionSubscribe2 from "components/SectionSubscribe2/SectionSubscribe2";
 import SectionGridHasMap from "./SectionGridHasMap";
 import { Helmet } from "react-helmet";
 
-export interface ListingExperiencesMapPageProps {
+export interface ListingRealEstateMapPageProps {
   className?: string;
 }
 
-const ListingExperiencesMapPage: FC<ListingExperiencesMapPageProps> = ({
+const ListingRealEstateMapPage: FC<ListingRealEstateMapPageProps> = ({
   className = "",
 }) => {
+  useEffect(() => {
+    const $body = document.querySelector("body");
+    if ($body) {
+      $body.className = "theme-cyan-blueGrey";
+    }
+    return () => {
+      if ($body) {
+        $body.className = "";
+      }
+    };
+  }, []);
+
   return (
-    <div
-      className={`nc-ListingExperiencesMapPage relative ${className}`}
-      data-nc-id="ListingExperiencesMapPage"
-    >
+    <div className={`nc-ListingRealEstateMapPage relative ${className}`}>
       <Helmet>
-        <title> Lotus revenue - Dapp Real state </title>
+        <title> lotus revenue Real state app</title>
       </Helmet>
-      <BgGlassmorphism />
 
       {/* SECTION HERO */}
       <div className="container pt-10 pb-24 lg:pt-16 lg:pb-28">
@@ -71,4 +79,4 @@ const ListingExperiencesMapPage: FC<ListingExperiencesMapPageProps> = ({
   );
 };
 
-export default ListingExperiencesMapPage;
+export default ListingRealEstateMapPage;

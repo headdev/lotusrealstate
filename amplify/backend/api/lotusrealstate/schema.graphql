@@ -1,10 +1,16 @@
 type User @model @auth(rules: [{ allow: owner }]) {
   id: ID!
   name: String
+  apellido : String
   email: String 
   phone: String
   address: String
-  
+  tipodeidentificacion : String
+  Noidentificacion : Number
+  propiedadguardada : [propiedad] @hasMany
+  propiedad comprada : [propiedad] @hasMany
+  propiedad alquilada : [Booking] @hasMany
+
   type: UserType @auth(rules: [{ allow: groups, groups: ["admin"] }])
 
   bookings: [Booking] @hasMany
@@ -18,10 +24,13 @@ type Property @model @auth(rules: [{ allow: owner }]) {
   id: ID!
   title: String
   description: String
-  price: Float
+  price: number
+  pricemes : number
+  pricedia : number
+  imagenPrincipal : String
 
   amenities: [String]
-  images: [String]
+  imagenes: [String]
 
   owner: User @hasOne
   bookings: [Booking] @hasMany
