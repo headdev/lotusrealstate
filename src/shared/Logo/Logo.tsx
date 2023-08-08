@@ -21,7 +21,6 @@ const Logo: React.FC<LogoProps> = ({
       to="/"
       className={`ttnc-logo inline-block text-primary-6000 focus:outline-none focus:ring-0 ${className}`}
     >
-      <LogoSvgLight />
       <LogoSvg />
 
       {/* THIS USE FOR MY CLIENT */}

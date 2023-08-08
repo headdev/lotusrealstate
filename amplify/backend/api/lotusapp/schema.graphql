@@ -22,10 +22,12 @@ type Property @model @auth(rules: [{allow: owner}]) {
 
 type User @model @auth(rules: [{allow: owner}]) {
   id: ID!
-  name: String! 
+  name: String!
   email: AWSEmail!
   address: String
-  
+  idType: String # cédula, pasaporte, licencia de conducir
+  idNumber: String
+  perfilfoto : String
   boughtProperties: [Property] @hasMany
   rentedProperties: [Rental] @hasMany
 

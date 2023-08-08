@@ -3,7 +3,7 @@ import React from "react";
 const LogoSvg = () => {
   return (
     <svg
-      className="w-full block dark:hidden"
+
       viewBox="0 0 141.99985 91.992485"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

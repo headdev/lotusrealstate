@@ -1,7 +1,5 @@
 import React, { FC } from "react";
 import facebookSvg from "images/Facebook.svg";
-import { Amplify, Auth } from 'aws-amplify'; //importar amplify para login 
-import { AmplifyAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'; importar amplify para login 
 import twitterSvg from "images/Twitter.svg";
 import googleSvg from "images/Google.svg";
 import { Helmet } from "react-helmet";
@@ -42,7 +40,7 @@ const PageLogin: FC<PageLoginProps> = ({ className = "" }) => {
           Login
         </h2>
         <div className="max-w-md mx-auto space-y-6">
-          <div className="grid gap-3">
+          {/* <div className="grid gap-3">
             {loginSocials.map((item, index) => (
               <a
                 key={index}
@@ -59,15 +57,13 @@ const PageLogin: FC<PageLoginProps> = ({ className = "" }) => {
                 </h3>
               </a>
             ))}
-          </div>
-          {/* OR */}
+          </div> */}
           <div className="relative text-center">
             <span className="relative z-10 inline-block px-4 font-medium text-sm bg-white dark:text-neutral-400 dark:bg-neutral-900">
-              OR
+              Bienvenido a lotus revenue
             </span>
             <div className="absolute left-0 w-full top-1/2 transform -translate-y-1/2 border border-neutral-100 dark:border-neutral-800"></div>
           </div>
-          {/* FORM */}
           <form className="grid grid-cols-1 gap-6" action="#" method="post">
             <label className="block">
               <span className="text-neutral-800 dark:text-neutral-200">
@@ -91,7 +87,6 @@ const PageLogin: FC<PageLoginProps> = ({ className = "" }) => {
             <ButtonPrimary type="submit">Continue</ButtonPrimary>
           </form>
 
-          {/* ==== */}
           <span className="block text-center text-neutral-700 dark:text-neutral-300">
             New user? {` `}
             <Link to="/signup">Create an account</Link>

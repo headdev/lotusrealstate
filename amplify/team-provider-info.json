@@ -1,4 +1,25 @@
 {
+  "desarrollo": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-lotusapp-desarrollo-223450-authRole",
+      "UnauthRoleArn": "arn:aws:iam::528471089703:role/amplify-lotusapp-desarrollo-223450-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::528471089703:role/amplify-lotusapp-desarrollo-223450-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-lotusapp-desarrollo-223450-deployment",
+      "UnauthRoleName": "amplify-lotusapp-desarrollo-223450-unauthRole",
+      "StackName": "amplify-lotusapp-desarrollo-223450",
+      "StackId": "arn:aws:cloudformation:us-east-1:528471089703:stack/amplify-lotusapp-desarrollo-223450/3434fff0-340a-11ee-8fa6-0e35fad61303",
+      "AmplifyAppId": "dcr4xj6dfitfj"
+    },
+    "categories": {
+      "auth": {
+        "lotusapp2ee2f779": {}
+      },
+      "api": {
+        "lotusapp": {}
+      }
+    }
+  },
   "dev": {
     "awscloudformation": {
       "AuthRoleName": "amplify-lotusapp-dev-121610-authRole",
@@ -14,27 +35,6 @@
     "categories": {
       "auth": {
         "lotusapp9bc85fb3": {},
-        "lotusapp2ee2f779": {}
-      },
-      "api": {
-        "lotusapp": {}
-      }
-    }
-  },
-  "desarrollo": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-lotusapp-desarrollo-223450-authRole",
-      "UnauthRoleArn": "arn:aws:iam::528471089703:role/amplify-lotusapp-desarrollo-223450-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::528471089703:role/amplify-lotusapp-desarrollo-223450-authRole",
-      "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-lotusapp-desarrollo-223450-deployment",
-      "UnauthRoleName": "amplify-lotusapp-desarrollo-223450-unauthRole",
-      "StackName": "amplify-lotusapp-desarrollo-223450",
-      "StackId": "arn:aws:cloudformation:us-east-1:528471089703:stack/amplify-lotusapp-desarrollo-223450/3434fff0-340a-11ee-8fa6-0e35fad61303",
-      "AmplifyAppId": "dcr4xj6dfitfj"
-    },
-    "categories": {
-      "auth": {
         "lotusapp2ee2f779": {}
       },
       "api": {

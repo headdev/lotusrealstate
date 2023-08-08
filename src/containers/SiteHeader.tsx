@@ -162,7 +162,7 @@ const SiteHeader = () => {
   return (
     <>
       <Helmet>
-        <title>Chisfis || Booking React Template</title>
+        <title> lotus real state dapp</title>
       </Helmet>
       {renderHeader()}
       <div ref={anchorRef} className="h-1 absolute invisible"></div>
