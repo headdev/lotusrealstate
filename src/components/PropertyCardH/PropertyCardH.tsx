@@ -7,6 +7,8 @@ import BtnLikeIcon from "components/BtnLikeIcon/BtnLikeIcon";
 import SaleOffBadge from "components/SaleOffBadge/SaleOffBadge";
 import Badge from "shared/Badge/Badge";
 import { StayDataType } from "data/types";
+import { useHistory } from 'react-router-dom';
+
 
 export interface PropertyCardHProps {
   className?: string;
@@ -121,9 +123,12 @@ const PropertyCardH: FC<PropertyCardHProps> = ({
             <span className="flex items-center justify-center px-3 py-2 border border-secondary-500 rounded leading-none text-base font-medium text-secondary-500">
               {`${price},000`}
             </span>
-            <button className="ml-2 py-2 px-3 rounded bg-blue-500 text-white">
-      Ver más
-    </button>
+            <button 
+        onClick={() => history.push(`/property-detail/${id}`)}
+        className="bg-blue-500 text-white"  
+      >
+        Ver más
+      </button>
           </div>
         </div>
       </div>
