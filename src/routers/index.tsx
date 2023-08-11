@@ -55,6 +55,7 @@ export const pages: Page[] = [
   { path: "/listing-stay", component: ListingStayPage },
   { path: "/listing-stay-map", component: ListingStayMapPage },
   { path: "/listing-stay-detail", component: ListingStayDetailPage },
+  { path: "/property-detail", component: ListingStayDetailPage },
   //
   {
     path: "/listing-experiences",
