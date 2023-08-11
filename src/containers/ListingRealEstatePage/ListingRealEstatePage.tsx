@@ -5,7 +5,7 @@ import { TaxonomyType } from "data/types";
 import React, { FC, useEffect } from "react";
 import SectionGridFilterCard from "./SectionGridFilterCard";
 import { Helmet } from "react-helmet";
-import SectionHero2ArchivePage from "components/SectionHero2ArchivePage/SectionHero2ArchivePage";
+import SectionHero2ArchivePageRealstate from "components/SectionHero2ArchivePageRealstate/SectionHero2ArchivePageRealstate";
 
 export interface ListingRealEstatePageProps {
   className?: string;
@@ -90,7 +90,7 @@ const ListingRealEstatePage: FC<ListingRealEstatePageProps> = ({
 
       <div className="container relative">
         {/* SECTION HERO */}
-        <SectionHero2ArchivePage className="" />
+        <SectionHero2ArchivePageRealstate className="" />
 
         {/* SECTION */}
         <SectionGridFilterCard className="py-24 lg:py-28" />

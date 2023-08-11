@@ -5,10 +5,11 @@ import SectionSliderNewCategories from "components/SectionSliderNewCategories/Se
 import SectionSubscribe2 from "components/SectionSubscribe2/SectionSubscribe2";
 import SectionGridHasMap from "./SectionGridHasMap";
 import { Helmet } from "react-helmet";
-import SectionHero2ArchivePage from "components/SectionHero2ArchivePage/SectionHero2ArchivePage";
+import SectionHero2ArchivePageRealstate from "components/SectionHero2ArchivePageRealstate/SectionHero2ArchivePageRealstate";
 
 export interface ListingRealEstateMapPageProps {
   className?: string;
+
 }
 
 const ListingRealEstateMapPage: FC<ListingRealEstateMapPageProps> = ({
@@ -29,12 +30,12 @@ const ListingRealEstateMapPage: FC<ListingRealEstateMapPageProps> = ({
   return (
     <div className={`nc-ListingRealEstateMapPage relative ${className}`}>
       <Helmet>
-        <title>lotus real sstate | invierte en el caribe</title>
+        <title>Chisfis || Booking React Template</title>
       </Helmet>
 
       {/* SECTION HERO */}
       <div className="container pb-24 lg:pb-28">
-        <SectionHero2ArchivePage className="" />
+        <SectionHero2ArchivePageRealstate className="" />
       </div>
 
       {/* SECTION */}

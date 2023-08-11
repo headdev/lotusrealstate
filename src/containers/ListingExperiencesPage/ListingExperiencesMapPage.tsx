@@ -1,19 +1,32 @@
-import React, { FC,useEffect } from "react";
+import React, { FC, useEffect, ReactNode } from "react";
 import BackgroundSection from "components/BackgroundSection/BackgroundSection";
 import BgGlassmorphism from "components/BgGlassmorphism/BgGlassmorphism";
 import SectionGridAuthorBox from "components/SectionGridAuthorBox/SectionGridAuthorBox";
-import SectionHeroArchivePage from "components/SectionHeroArchivePage/SectionHeroArchivePage";
+//section para experiencias//
+//import SectionHeroArchivePage from "components/SectionHeroArchivePage/SectionHeroArchivePage";
+// section para real
+import SectionHero2ArchivePage from "components/SectionHero2ArchivePage/SectionHero2ArchivePage";
+import HeroRealEstateSearchForm, { SearchRealEstateTab } from "components/HeroSearchForm/(real-estate-search-form)/HeroRealEstateSearchForm";
+
 import SectionSliderNewCategories from "components/SectionSliderNewCategories/SectionSliderNewCategories";
 import SectionSubscribe2 from "components/SectionSubscribe2/SectionSubscribe2";
-import SectionGridHasMap from "./SectionGridHasMap";
+import SectionGridHasMap from "containers/ListingRealEstatePage/SectionGridHasMap";
 import { Helmet } from "react-helmet";
 
-export interface ListingRealEstateMapPageProps {
+
+export interface ListingExperiencesMapPageProps {
   className?: string;
+  currentPage?: "Buy"  | "Rent";
+  currentTab?: SearchRealEstateTab; 
+  listingType?: ReactNode;
+
 }
 
-const ListingRealEstateMapPage: FC<ListingRealEstateMapPageProps> = ({
+const ListingExperiencesMapPageProps: FC<ListingExperiencesMapPageProps> = ({
   className = "",
+  currentTab = "Buy",
+  currentPage= "Buy",
+  listingType= "", 
 }) => {
   useEffect(() => {
     const $body = document.querySelector("body");
@@ -28,23 +41,21 @@ const ListingRealEstateMapPage: FC<ListingRealEstateMapPageProps> = ({
   }, []);
 
   return (
-    <div className={`nc-ListingRealEstateMapPage relative ${className}`}>
+    <div
+      className={`nc-ListingExperiencesPage relative overflow-hidden ${className}`}
+      data-nc-id="ListingExperiencesPage"
+    >
       <Helmet>
-        <title> lotus revenue Real state app</title>
+        <title>lotus revenue Real state app</title>
       </Helmet>
+      <BgGlassmorphism />
+
 
       {/* SECTION HERO */}
       <div className="container pt-10 pb-24 lg:pt-16 lg:pb-28">
-        <SectionHeroArchivePage
-          currentPage="Experiences"
-          currentTab="Experiences"
-          listingType={
-            <>
-              <i className="text-2xl las la-umbrella-beach"></i>
-              <span className="ml-2.5">+56 Proyectos inmobiliarios</span>
-            </>
-          }
-        />
+        <SectionHero2ArchivePage
+          currentPage={currentPage}
+          currentTab={currentTab} />
       </div>
 
       {/* SECTION */}
@@ -66,6 +77,8 @@ const ListingRealEstateMapPage: FC<ListingRealEstateMapPageProps> = ({
           />
         </div>
 
+     
+
         {/* SECTION */}
         <SectionSubscribe2 className="py-24 lg:py-28" />
 
@@ -79,4 +92,4 @@ const ListingRealEstateMapPage: FC<ListingRealEstateMapPageProps> = ({
   );
 };
 
-export default ListingRealEstateMapPage;
+export default ListingExperiencesMapPageProps;
