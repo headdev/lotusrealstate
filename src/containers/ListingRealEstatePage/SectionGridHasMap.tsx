@@ -21,13 +21,13 @@ const SectionGridHasMap: FC<{}> = () => {
         {/* CARDSSSS */}
         <div className="min-h-screen w-full xl:w-[780px] 2xl:w-[880px] flex-shrink-0 xl:px-8 ">
           <Heading2
-            heading="Experiences in Tokyo"
+            heading="Nuestros ultimos proyectos"
             subHeading={
               <span className="block text-neutral-500 dark:text-neutral-400 mt-3">
-                233 experiences
+                +56 propiedades
                 <span className="mx-2">·</span>
-                Aug 12 - 18
-                <span className="mx-2">·</span>2 Guests
+               Mexico y el caribe
+                <span className="mx-2"></span>
               </span>
             }
           />
@@ -83,7 +83,7 @@ const SectionGridHasMap: FC<{}> = () => {
 
             <GoogleMapReact
               bootstrapURLKeys={{
-                key: "AIzaSyAGVJfZMAKYfZ71nzL_v5i3LjTTWnCYwTY",
+                key: "AIzaSyD4tbkObs5_VZoEvhOqmQaWRVwCyVtzNik",
               }}
               yesIWantToUseGoogleMapApiInternals
               defaultZoom={12}

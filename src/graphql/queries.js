@@ -53,6 +53,9 @@ export const getRental = /* GraphQL */ `
           name
           email
           address
+          idType
+          idNumber
+          perfilfoto
           createdAt
           updatedAt
           owner
@@ -90,6 +93,9 @@ export const getRental = /* GraphQL */ `
         name
         email
         address
+        idType
+        idNumber
+        perfilfoto
         boughtProperties {
           nextToken
           __typename
@@ -148,6 +154,9 @@ export const listRentals = /* GraphQL */ `
           name
           email
           address
+          idType
+          idNumber
+          perfilfoto
           createdAt
           updatedAt
           owner
@@ -183,6 +192,9 @@ export const getProperty = /* GraphQL */ `
         name
         email
         address
+        idType
+        idNumber
+        perfilfoto
         boughtProperties {
           nextToken
           __typename
@@ -250,6 +262,9 @@ export const listProperties = /* GraphQL */ `
           name
           email
           address
+          idType
+          idNumber
+          perfilfoto
           createdAt
           updatedAt
           owner
@@ -294,6 +309,9 @@ export const getUser = /* GraphQL */ `
       name
       email
       address
+      idType
+      idNumber
+      perfilfoto
       boughtProperties {
         items {
           id
@@ -352,6 +370,9 @@ export const listUsers = /* GraphQL */ `
         name
         email
         address
+        idType
+        idNumber
+        perfilfoto
         boughtProperties {
           nextToken
           __typename

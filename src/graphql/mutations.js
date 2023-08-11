@@ -70,6 +70,9 @@ export const createRental = /* GraphQL */ `
           name
           email
           address
+          idType
+          idNumber
+          perfilfoto
           createdAt
           updatedAt
           owner
@@ -107,6 +110,9 @@ export const createRental = /* GraphQL */ `
         name
         email
         address
+        idType
+        idNumber
+        perfilfoto
         boughtProperties {
           nextToken
           __typename
@@ -152,6 +158,9 @@ export const updateRental = /* GraphQL */ `
           name
           email
           address
+          idType
+          idNumber
+          perfilfoto
           createdAt
           updatedAt
           owner
@@ -189,6 +198,9 @@ export const updateRental = /* GraphQL */ `
         name
         email
         address
+        idType
+        idNumber
+        perfilfoto
         boughtProperties {
           nextToken
           __typename
@@ -234,6 +246,9 @@ export const deleteRental = /* GraphQL */ `
           name
           email
           address
+          idType
+          idNumber
+          perfilfoto
           createdAt
           updatedAt
           owner
@@ -271,6 +286,9 @@ export const deleteRental = /* GraphQL */ `
         name
         email
         address
+        idType
+        idNumber
+        perfilfoto
         boughtProperties {
           nextToken
           __typename
@@ -314,6 +332,9 @@ export const createProperty = /* GraphQL */ `
         name
         email
         address
+        idType
+        idNumber
+        perfilfoto
         boughtProperties {
           nextToken
           __typename
@@ -379,6 +400,9 @@ export const updateProperty = /* GraphQL */ `
         name
         email
         address
+        idType
+        idNumber
+        perfilfoto
         boughtProperties {
           nextToken
           __typename
@@ -444,6 +468,9 @@ export const deleteProperty = /* GraphQL */ `
         name
         email
         address
+        idType
+        idNumber
+        perfilfoto
         boughtProperties {
           nextToken
           __typename
@@ -500,6 +527,9 @@ export const createUser = /* GraphQL */ `
       name
       email
       address
+      idType
+      idNumber
+      perfilfoto
       boughtProperties {
         items {
           id
@@ -556,6 +586,9 @@ export const updateUser = /* GraphQL */ `
       name
       email
       address
+      idType
+      idNumber
+      perfilfoto
       boughtProperties {
         items {
           id
@@ -612,6 +645,9 @@ export const deleteUser = /* GraphQL */ `
       name
       email
       address
+      idType
+      idNumber
+      perfilfoto
       boughtProperties {
         items {
           id

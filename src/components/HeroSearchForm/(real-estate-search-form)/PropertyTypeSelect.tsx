@@ -4,30 +4,28 @@ import { HomeIcon } from "@heroicons/react/24/outline";
 import { ClassOfProperties } from "../type";
 import Checkbox from "shared/Checkbox/Checkbox";
 
-const defaultPropertyType: ClassOfProperties[] = [
+const defaultPropertyType = [
   {
-    name: "Duplex House",
-    description: "Have a place to yourself",
+    name: "Cabaña",
+    description: "🌲 Un lugar acogedor en la naturaleza",
     checked: true,
   },
   {
-    name: "Ferme House",
-    description: "Have your own room and share some common spaces",
+    name: "Apartamento", 
+    description: "🏢 Moderno y cómodo en la ciudad",
     checked: false,
   },
   {
-    name: "Chalet House",
-    description:
-      "Have a private or shared room in a boutique hotel, hostel, and more",
+    name: "Chalet/Mansión",
+    description: "🏰 Lujo y espacio para toda la familia ",
     checked: false,
   },
   {
-    name: "Maison House",
-    description: "Stay in a shared space, like a common room",
+    name: "Hotel/Fracción",
+    description: "🏨 Ideal para unas vacaciones relajadas", 
     checked: false,
-  },
+  }
 ];
-
 export interface PropertyTypeSelectProps {
   onChange?: (data: any) => void;
   fieldClassName?: string;

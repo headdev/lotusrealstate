@@ -8,16 +8,31 @@ import { Helmet } from "react-helmet";
 import Input from "shared/Input/Input";
 import ButtonPrimary from "shared/Button/ButtonPrimary";
 import { Link } from "react-router-dom";
+import { Storage } from 'aws-amplify';
 
 
 
 Amplify.configure({
   Auth: {
-    identityPoolId: 'us-east-1:bf89a312-4c2d-40c8-be15-f093e6a2468d',
-    region: 'us-east-1'
-  }
+    identityPoolId: '67b391e2-2946-48a1-b64d-ca48b9200f9d', 
+    region: 'us-east-1',
+    userPoolId: 'us-east-1_xeNkO3wS7',
+    userPoolWebClientId: '6ad3n0ge5lchobrihaam32q4i2',
+  },
+  Storage: {
+    region: 'us-east-1', // Región de S3
+  },
+  
+  aws_appsync_graphqlEndpoint: 'https://4hu2gcdusfb7xpsm525ae27hvu.appsync-api.us-east-1.amazonaws.com/graphql',
+  aws_appsync_region: 'us-east-1',
+  aws_appsync_authenticationType: 'API_KEY',
+  aws_appsync_apiKey: 'da2-7hwxsaicjrcppeht4lk7d5itrq'
+  
 });
 
+Storage.configure({
+  region: 'us-east-1'
+})
 interface FormData {
   username: string;  
   password: string;
@@ -26,7 +41,7 @@ interface FormData {
   idNumber: string;  
   address: string;
   email: string;    
-  perfilfoto: File | null | undefined
+  perfilfoto: File | null | undefined 
 }
 
 export interface PageSignUpProps {
@@ -66,7 +81,15 @@ const PageSignUp: FC<PageSignUpProps> = ({ className = "" }) => {
 
 
   const handleSubmit = async (event: React.FormEvent) => {
+     // Validar que haya un archivo
+  if(!formData.perfilfoto) {
+    alert('Debes seleccionar una imagen');
+    return;
+  }
     event.preventDefault();
+    const photoKey = formData.perfilfoto 
+    ? await Storage.put(formData.perfilfoto.name, formData.perfilfoto)
+    : null;
 
     const { username, password, email, name, idType, idNumber, address,perfilfoto  } = formData;
     if (!validateEmail(email)) {
@@ -81,13 +104,13 @@ const PageSignUp: FC<PageSignUpProps> = ({ className = "" }) => {
         attributes: {
           email,
           name,
-          perfilfoto,
           'custom:id_type': idType,
           'custom:id_number': idNumber,
-          'custom:address': address
+          'custom:address': address,
+          'custom:perfilfoto': photoKey
         },
         clientMetadata: {
-          signupAttributes: 'email, name, perfilfoto, custom:id_type, custom:id_number, custom:address'
+          signupAttributes: 'email, name, custom:perfilfoto, custom:id_type, custom:id_number, custom:address'
         }
       });
       
@@ -237,4 +260,4 @@ const PageSignUp: FC<PageSignUpProps> = ({ className = "" }) => {
   );
 };
 
-export default PageSignUp;
+export default PageSignUp;  

@@ -11,7 +11,7 @@ import NcInputNumber from "components/NcInputNumber/NcInputNumber";
 // DEMO DATA
 const typeOfProperty = [
   {
-    name: "Duplex House",
+    name: "Cabaña",
     description: "Have a place to yourself",
     checked: true,
   },
