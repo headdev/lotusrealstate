@@ -39,7 +39,7 @@ const SearchDropdown = () => {
                     <Input
                       ref={inputRef}
                       type="search"
-                      placeholder="Busca tu propoiedad Aqui "
+                      placeholder="Busca tu propoiedad Aqui"
                     />
                     <input type="submit" hidden value="" />
                   </form>

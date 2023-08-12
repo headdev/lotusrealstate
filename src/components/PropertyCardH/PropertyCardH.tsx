@@ -128,7 +128,7 @@ const PropertyCardH: FC<PropertyCardHProps> = ({
         className="bg-blue-500 text-white"  
       >
         Ver más
-      </button>
+      </button> 
           </div>
         </div>
       </div>
