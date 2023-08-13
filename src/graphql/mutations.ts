@@ -1,204 +1,223 @@
+/* tslint:disable */
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateLocation = /* GraphQL */ `
-  subscription OnCreateLocation($filter: ModelSubscriptionLocationFilterInput) {
-    onCreateLocation(filter: $filter) {
-      id
-      address
-      lat
-      lon
-      createdAt
-      updatedAt
-      __typename
-    }
-  }
-`;
-export const onUpdateLocation = /* GraphQL */ `
-  subscription OnUpdateLocation($filter: ModelSubscriptionLocationFilterInput) {
-    onUpdateLocation(filter: $filter) {
-      id
-      address
-      lat
-      lon
-      createdAt
-      updatedAt
-      __typename
-    }
-  }
-`;
-export const onDeleteLocation = /* GraphQL */ `
-  subscription OnDeleteLocation($filter: ModelSubscriptionLocationFilterInput) {
-    onDeleteLocation(filter: $filter) {
-      id
-      address
-      lat
-      lon
-      createdAt
-      updatedAt
-      __typename
-    }
-  }
-`;
-export const onCreateRental = /* GraphQL */ `
-  subscription OnCreateRental($filter: ModelSubscriptionRentalFilterInput) {
-    onCreateRental(filter: $filter) {
-      id
-      property {
-        id
-        title
-        shortDescription
-        longDescription
-        type
-        price
-        rentPerMonth
-        rentPerDay
-        amenities
-        mainImage
-        images
-        createdAt
-        updatedAt
-        userBoughtPropertiesId
-        agentPropertiesId
-        propertyOwnerId
-        propertyAgentId
-        propertyLocationId
-        __typename
-      }
-      user {
-        id
-        username
-        name
-        email
-        address
-        idType
-        idNumber
-        images
-        perfilfoto
-        createdAt
-        updatedAt
-        owner
-        __typename
-      }
-      nights
-      paidAmount
-      createdAt
-      updatedAt
-      userRentedPropertiesId
-      rentalPropertyId
-      rentalUserId
-      __typename
-    }
-  }
-`;
-export const onUpdateRental = /* GraphQL */ `
-  subscription OnUpdateRental($filter: ModelSubscriptionRentalFilterInput) {
-    onUpdateRental(filter: $filter) {
-      id
-      property {
-        id
-        title
-        shortDescription
-        longDescription
-        type
-        price
-        rentPerMonth
-        rentPerDay
-        amenities
-        mainImage
-        images
-        createdAt
-        updatedAt
-        userBoughtPropertiesId
-        agentPropertiesId
-        propertyOwnerId
-        propertyAgentId
-        propertyLocationId
-        __typename
-      }
-      user {
-        id
-        username
-        name
-        email
-        address
-        idType
-        idNumber
-        images
-        perfilfoto
-        createdAt
-        updatedAt
-        owner
-        __typename
-      }
-      nights
-      paidAmount
-      createdAt
-      updatedAt
-      userRentedPropertiesId
-      rentalPropertyId
-      rentalUserId
-      __typename
-    }
-  }
-`;
-export const onDeleteRental = /* GraphQL */ `
-  subscription OnDeleteRental($filter: ModelSubscriptionRentalFilterInput) {
-    onDeleteRental(filter: $filter) {
-      id
-      property {
-        id
-        title
-        shortDescription
-        longDescription
-        type
-        price
-        rentPerMonth
-        rentPerDay
-        amenities
-        mainImage
-        images
-        createdAt
-        updatedAt
-        userBoughtPropertiesId
-        agentPropertiesId
-        propertyOwnerId
-        propertyAgentId
-        propertyLocationId
-        __typename
-      }
-      user {
-        id
-        username
-        name
-        email
-        address
-        idType
-        idNumber
-        images
-        perfilfoto
-        createdAt
-        updatedAt
-        owner
-        __typename
-      }
-      nights
-      paidAmount
-      createdAt
-      updatedAt
-      userRentedPropertiesId
-      rentalPropertyId
-      rentalUserId
-      __typename
-    }
-  }
-`;
-export const onCreateProperty = /* GraphQL */ `
-  subscription OnCreateProperty(
-    $filter: ModelSubscriptionPropertyFilterInput
-    $owner: String
+export const createLocation = /* GraphQL */ `
+  mutation CreateLocation(
+    $input: CreateLocationInput!
+    $condition: ModelLocationConditionInput
   ) {
-    onCreateProperty(filter: $filter, owner: $owner) {
+    createLocation(input: $input, condition: $condition) {
+      id
+      address
+      lat
+      lon
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const updateLocation = /* GraphQL */ `
+  mutation UpdateLocation(
+    $input: UpdateLocationInput!
+    $condition: ModelLocationConditionInput
+  ) {
+    updateLocation(input: $input, condition: $condition) {
+      id
+      address
+      lat
+      lon
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const deleteLocation = /* GraphQL */ `
+  mutation DeleteLocation(
+    $input: DeleteLocationInput!
+    $condition: ModelLocationConditionInput
+  ) {
+    deleteLocation(input: $input, condition: $condition) {
+      id
+      address
+      lat
+      lon
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const createRental = /* GraphQL */ `
+  mutation CreateRental(
+    $input: CreateRentalInput!
+    $condition: ModelRentalConditionInput
+  ) {
+    createRental(input: $input, condition: $condition) {
+      id
+      property {
+        id
+        title
+        shortDescription
+        longDescription
+        type
+        price
+        rentPerMonth
+        rentPerDay
+        amenities
+        mainImage
+        images
+        createdAt
+        updatedAt
+        userBoughtPropertiesId
+        agentPropertiesId
+        propertyOwnerId
+        propertyAgentId
+        propertyLocationId
+        __typename
+      }
+      user {
+        id
+        username
+        name
+        email
+        address
+        idType
+        idNumber
+        images
+        perfilfoto
+        createdAt
+        updatedAt
+        owner
+        __typename
+      }
+      nights
+      paidAmount
+      createdAt
+      updatedAt
+      userRentedPropertiesId
+      rentalPropertyId
+      rentalUserId
+      __typename
+    }
+  }
+`;
+export const updateRental = /* GraphQL */ `
+  mutation UpdateRental(
+    $input: UpdateRentalInput!
+    $condition: ModelRentalConditionInput
+  ) {
+    updateRental(input: $input, condition: $condition) {
+      id
+      property {
+        id
+        title
+        shortDescription
+        longDescription
+        type
+        price
+        rentPerMonth
+        rentPerDay
+        amenities
+        mainImage
+        images
+        createdAt
+        updatedAt
+        userBoughtPropertiesId
+        agentPropertiesId
+        propertyOwnerId
+        propertyAgentId
+        propertyLocationId
+        __typename
+      }
+      user {
+        id
+        username
+        name
+        email
+        address
+        idType
+        idNumber
+        images
+        perfilfoto
+        createdAt
+        updatedAt
+        owner
+        __typename
+      }
+      nights
+      paidAmount
+      createdAt
+      updatedAt
+      userRentedPropertiesId
+      rentalPropertyId
+      rentalUserId
+      __typename
+    }
+  }
+`;
+export const deleteRental = /* GraphQL */ `
+  mutation DeleteRental(
+    $input: DeleteRentalInput!
+    $condition: ModelRentalConditionInput
+  ) {
+    deleteRental(input: $input, condition: $condition) {
+      id
+      property {
+        id
+        title
+        shortDescription
+        longDescription
+        type
+        price
+        rentPerMonth
+        rentPerDay
+        amenities
+        mainImage
+        images
+        createdAt
+        updatedAt
+        userBoughtPropertiesId
+        agentPropertiesId
+        propertyOwnerId
+        propertyAgentId
+        propertyLocationId
+        __typename
+      }
+      user {
+        id
+        username
+        name
+        email
+        address
+        idType
+        idNumber
+        images
+        perfilfoto
+        createdAt
+        updatedAt
+        owner
+        __typename
+      }
+      nights
+      paidAmount
+      createdAt
+      updatedAt
+      userRentedPropertiesId
+      rentalPropertyId
+      rentalUserId
+      __typename
+    }
+  }
+`;
+export const createProperty = /* GraphQL */ `
+  mutation CreateProperty(
+    $input: CreatePropertyInput!
+    $condition: ModelPropertyConditionInput
+  ) {
+    createProperty(input: $input, condition: $condition) {
       id
       title
       shortDescription
@@ -252,12 +271,12 @@ export const onCreateProperty = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateProperty = /* GraphQL */ `
-  subscription OnUpdateProperty(
-    $filter: ModelSubscriptionPropertyFilterInput
-    $owner: String
+export const updateProperty = /* GraphQL */ `
+  mutation UpdateProperty(
+    $input: UpdatePropertyInput!
+    $condition: ModelPropertyConditionInput
   ) {
-    onUpdateProperty(filter: $filter, owner: $owner) {
+    updateProperty(input: $input, condition: $condition) {
       id
       title
       shortDescription
@@ -311,12 +330,12 @@ export const onUpdateProperty = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteProperty = /* GraphQL */ `
-  subscription OnDeleteProperty(
-    $filter: ModelSubscriptionPropertyFilterInput
-    $owner: String
+export const deleteProperty = /* GraphQL */ `
+  mutation DeleteProperty(
+    $input: DeletePropertyInput!
+    $condition: ModelPropertyConditionInput
   ) {
-    onDeleteProperty(filter: $filter, owner: $owner) {
+    deleteProperty(input: $input, condition: $condition) {
       id
       title
       shortDescription
@@ -370,12 +389,12 @@ export const onDeleteProperty = /* GraphQL */ `
     }
   }
 `;
-export const onCreateUser = /* GraphQL */ `
-  subscription OnCreateUser(
-    $filter: ModelSubscriptionUserFilterInput
-    $owner: String
+export const createUser = /* GraphQL */ `
+  mutation CreateUser(
+    $input: CreateUserInput!
+    $condition: ModelUserConditionInput
   ) {
-    onCreateUser(filter: $filter, owner: $owner) {
+    createUser(input: $input, condition: $condition) {
       id
       username
       name
@@ -400,12 +419,12 @@ export const onCreateUser = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateUser = /* GraphQL */ `
-  subscription OnUpdateUser(
-    $filter: ModelSubscriptionUserFilterInput
-    $owner: String
+export const updateUser = /* GraphQL */ `
+  mutation UpdateUser(
+    $input: UpdateUserInput!
+    $condition: ModelUserConditionInput
   ) {
-    onUpdateUser(filter: $filter, owner: $owner) {
+    updateUser(input: $input, condition: $condition) {
       id
       username
       name
@@ -430,12 +449,12 @@ export const onUpdateUser = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteUser = /* GraphQL */ `
-  subscription OnDeleteUser(
-    $filter: ModelSubscriptionUserFilterInput
-    $owner: String
+export const deleteUser = /* GraphQL */ `
+  mutation DeleteUser(
+    $input: DeleteUserInput!
+    $condition: ModelUserConditionInput
   ) {
-    onDeleteUser(filter: $filter, owner: $owner) {
+    deleteUser(input: $input, condition: $condition) {
       id
       username
       name
@@ -460,9 +479,12 @@ export const onDeleteUser = /* GraphQL */ `
     }
   }
 `;
-export const onCreateAgent = /* GraphQL */ `
-  subscription OnCreateAgent($filter: ModelSubscriptionAgentFilterInput) {
-    onCreateAgent(filter: $filter) {
+export const createAgent = /* GraphQL */ `
+  mutation CreateAgent(
+    $input: CreateAgentInput!
+    $condition: ModelAgentConditionInput
+  ) {
+    createAgent(input: $input, condition: $condition) {
       id
       name
       properties {
@@ -475,9 +497,12 @@ export const onCreateAgent = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateAgent = /* GraphQL */ `
-  subscription OnUpdateAgent($filter: ModelSubscriptionAgentFilterInput) {
-    onUpdateAgent(filter: $filter) {
+export const updateAgent = /* GraphQL */ `
+  mutation UpdateAgent(
+    $input: UpdateAgentInput!
+    $condition: ModelAgentConditionInput
+  ) {
+    updateAgent(input: $input, condition: $condition) {
       id
       name
       properties {
@@ -490,9 +515,12 @@ export const onUpdateAgent = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteAgent = /* GraphQL */ `
-  subscription OnDeleteAgent($filter: ModelSubscriptionAgentFilterInput) {
-    onDeleteAgent(filter: $filter) {
+export const deleteAgent = /* GraphQL */ `
+  mutation DeleteAgent(
+    $input: DeleteAgentInput!
+    $condition: ModelAgentConditionInput
+  ) {
+    deleteAgent(input: $input, condition: $condition) {
       id
       name
       properties {

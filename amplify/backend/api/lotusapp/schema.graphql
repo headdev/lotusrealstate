@@ -7,7 +7,7 @@ type Property @model @auth(rules: [{allow: owner}]) {
   price: Float!
   rentPerMonth: Float
   rentPerDay: Float
-  
+  amenities : [amenities]
   owner: User @hasOne
   agent: Agent @hasOne
 
@@ -20,13 +20,25 @@ type Property @model @auth(rules: [{allow: owner}]) {
   updatedAt: AWSDateTime
 }
 
+enum amenities {
+gym
+piscina
+roof
+loby
+ascensor
+vista al mar
+} 
+
 type User @model @auth(rules: [{allow: owner}]) {
   id: ID!
+  username: String
   name: String!
   email: AWSEmail!
   address: String
-  idType: String # cédula, pasaporte, licencia de conducir
+  idType: [idType]
   idNumber: String
+    images: String
+
   perfilfoto : String
   boughtProperties: [Property] @hasMany
   rentedProperties: [Rental] @hasMany
@@ -43,6 +55,11 @@ type Agent @model @auth(rules: [{allow: private}]) {
 
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime
+}
+enum idType {
+  cedula
+  pasaporte
+  licencia de conducir
 }
 
 enum PropertyType {

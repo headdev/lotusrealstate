@@ -6,10 +6,15 @@ import "rc-slider/assets/index.css";
 import "./styles/index.scss";
 import "./index.css";
 import "./fonts/line-awesome-1.3.0/css/line-awesome.css";
-
+import "@aws-amplify/ui-react/styles.css";
 //
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { Amplify } from "aws-amplify";
+import awsExports from "aws-exports";
+import "@rainbow-me/rainbowkit/styles.css";
+
+Amplify.configure(awsExports);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

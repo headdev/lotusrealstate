@@ -65,37 +65,9 @@ export const createRental = /* GraphQL */ `
         price
         rentPerMonth
         rentPerDay
-        owner {
-          id
-          name
-          email
-          address
-          idType
-          idNumber
-          perfilfoto
-          createdAt
-          updatedAt
-          owner
-          __typename
-        }
-        agent {
-          id
-          name
-          createdAt
-          updatedAt
-          __typename
-        }
+        amenities
         mainImage
         images
-        location {
-          id
-          address
-          lat
-          lon
-          createdAt
-          updatedAt
-          __typename
-        }
         createdAt
         updatedAt
         userBoughtPropertiesId
@@ -107,20 +79,14 @@ export const createRental = /* GraphQL */ `
       }
       user {
         id
+        username
         name
         email
         address
         idType
         idNumber
+        images
         perfilfoto
-        boughtProperties {
-          nextToken
-          __typename
-        }
-        rentedProperties {
-          nextToken
-          __typename
-        }
         createdAt
         updatedAt
         owner
@@ -153,37 +119,9 @@ export const updateRental = /* GraphQL */ `
         price
         rentPerMonth
         rentPerDay
-        owner {
-          id
-          name
-          email
-          address
-          idType
-          idNumber
-          perfilfoto
-          createdAt
-          updatedAt
-          owner
-          __typename
-        }
-        agent {
-          id
-          name
-          createdAt
-          updatedAt
-          __typename
-        }
+        amenities
         mainImage
         images
-        location {
-          id
-          address
-          lat
-          lon
-          createdAt
-          updatedAt
-          __typename
-        }
         createdAt
         updatedAt
         userBoughtPropertiesId
@@ -195,20 +133,14 @@ export const updateRental = /* GraphQL */ `
       }
       user {
         id
+        username
         name
         email
         address
         idType
         idNumber
+        images
         perfilfoto
-        boughtProperties {
-          nextToken
-          __typename
-        }
-        rentedProperties {
-          nextToken
-          __typename
-        }
         createdAt
         updatedAt
         owner
@@ -241,37 +173,9 @@ export const deleteRental = /* GraphQL */ `
         price
         rentPerMonth
         rentPerDay
-        owner {
-          id
-          name
-          email
-          address
-          idType
-          idNumber
-          perfilfoto
-          createdAt
-          updatedAt
-          owner
-          __typename
-        }
-        agent {
-          id
-          name
-          createdAt
-          updatedAt
-          __typename
-        }
+        amenities
         mainImage
         images
-        location {
-          id
-          address
-          lat
-          lon
-          createdAt
-          updatedAt
-          __typename
-        }
         createdAt
         updatedAt
         userBoughtPropertiesId
@@ -283,20 +187,14 @@ export const deleteRental = /* GraphQL */ `
       }
       user {
         id
+        username
         name
         email
         address
         idType
         idNumber
+        images
         perfilfoto
-        boughtProperties {
-          nextToken
-          __typename
-        }
-        rentedProperties {
-          nextToken
-          __typename
-        }
         createdAt
         updatedAt
         owner
@@ -327,22 +225,17 @@ export const createProperty = /* GraphQL */ `
       price
       rentPerMonth
       rentPerDay
+      amenities
       owner {
         id
+        username
         name
         email
         address
         idType
         idNumber
+        images
         perfilfoto
-        boughtProperties {
-          nextToken
-          __typename
-        }
-        rentedProperties {
-          nextToken
-          __typename
-        }
         createdAt
         updatedAt
         owner
@@ -351,10 +244,6 @@ export const createProperty = /* GraphQL */ `
       agent {
         id
         name
-        properties {
-          nextToken
-          __typename
-        }
         createdAt
         updatedAt
         __typename
@@ -395,22 +284,17 @@ export const updateProperty = /* GraphQL */ `
       price
       rentPerMonth
       rentPerDay
+      amenities
       owner {
         id
+        username
         name
         email
         address
         idType
         idNumber
+        images
         perfilfoto
-        boughtProperties {
-          nextToken
-          __typename
-        }
-        rentedProperties {
-          nextToken
-          __typename
-        }
         createdAt
         updatedAt
         owner
@@ -419,10 +303,6 @@ export const updateProperty = /* GraphQL */ `
       agent {
         id
         name
-        properties {
-          nextToken
-          __typename
-        }
         createdAt
         updatedAt
         __typename
@@ -463,22 +343,17 @@ export const deleteProperty = /* GraphQL */ `
       price
       rentPerMonth
       rentPerDay
+      amenities
       owner {
         id
+        username
         name
         email
         address
         idType
         idNumber
+        images
         perfilfoto
-        boughtProperties {
-          nextToken
-          __typename
-        }
-        rentedProperties {
-          nextToken
-          __typename
-        }
         createdAt
         updatedAt
         owner
@@ -487,10 +362,6 @@ export const deleteProperty = /* GraphQL */ `
       agent {
         id
         name
-        properties {
-          nextToken
-          __typename
-        }
         createdAt
         updatedAt
         __typename
@@ -524,48 +395,19 @@ export const createUser = /* GraphQL */ `
   ) {
     createUser(input: $input, condition: $condition) {
       id
+      username
       name
       email
       address
       idType
       idNumber
+      images
       perfilfoto
       boughtProperties {
-        items {
-          id
-          title
-          shortDescription
-          longDescription
-          type
-          price
-          rentPerMonth
-          rentPerDay
-          mainImage
-          images
-          createdAt
-          updatedAt
-          userBoughtPropertiesId
-          agentPropertiesId
-          propertyOwnerId
-          propertyAgentId
-          propertyLocationId
-          __typename
-        }
         nextToken
         __typename
       }
       rentedProperties {
-        items {
-          id
-          nights
-          paidAmount
-          createdAt
-          updatedAt
-          userRentedPropertiesId
-          rentalPropertyId
-          rentalUserId
-          __typename
-        }
         nextToken
         __typename
       }
@@ -583,48 +425,19 @@ export const updateUser = /* GraphQL */ `
   ) {
     updateUser(input: $input, condition: $condition) {
       id
+      username
       name
       email
       address
       idType
       idNumber
+      images
       perfilfoto
       boughtProperties {
-        items {
-          id
-          title
-          shortDescription
-          longDescription
-          type
-          price
-          rentPerMonth
-          rentPerDay
-          mainImage
-          images
-          createdAt
-          updatedAt
-          userBoughtPropertiesId
-          agentPropertiesId
-          propertyOwnerId
-          propertyAgentId
-          propertyLocationId
-          __typename
-        }
         nextToken
         __typename
       }
       rentedProperties {
-        items {
-          id
-          nights
-          paidAmount
-          createdAt
-          updatedAt
-          userRentedPropertiesId
-          rentalPropertyId
-          rentalUserId
-          __typename
-        }
         nextToken
         __typename
       }
@@ -642,48 +455,19 @@ export const deleteUser = /* GraphQL */ `
   ) {
     deleteUser(input: $input, condition: $condition) {
       id
+      username
       name
       email
       address
       idType
       idNumber
+      images
       perfilfoto
       boughtProperties {
-        items {
-          id
-          title
-          shortDescription
-          longDescription
-          type
-          price
-          rentPerMonth
-          rentPerDay
-          mainImage
-          images
-          createdAt
-          updatedAt
-          userBoughtPropertiesId
-          agentPropertiesId
-          propertyOwnerId
-          propertyAgentId
-          propertyLocationId
-          __typename
-        }
         nextToken
         __typename
       }
       rentedProperties {
-        items {
-          id
-          nights
-          paidAmount
-          createdAt
-          updatedAt
-          userRentedPropertiesId
-          rentalPropertyId
-          rentalUserId
-          __typename
-        }
         nextToken
         __typename
       }
@@ -703,26 +487,6 @@ export const createAgent = /* GraphQL */ `
       id
       name
       properties {
-        items {
-          id
-          title
-          shortDescription
-          longDescription
-          type
-          price
-          rentPerMonth
-          rentPerDay
-          mainImage
-          images
-          createdAt
-          updatedAt
-          userBoughtPropertiesId
-          agentPropertiesId
-          propertyOwnerId
-          propertyAgentId
-          propertyLocationId
-          __typename
-        }
         nextToken
         __typename
       }
@@ -741,26 +505,6 @@ export const updateAgent = /* GraphQL */ `
       id
       name
       properties {
-        items {
-          id
-          title
-          shortDescription
-          longDescription
-          type
-          price
-          rentPerMonth
-          rentPerDay
-          mainImage
-          images
-          createdAt
-          updatedAt
-          userBoughtPropertiesId
-          agentPropertiesId
-          propertyOwnerId
-          propertyAgentId
-          propertyLocationId
-          __typename
-        }
         nextToken
         __typename
       }
@@ -779,26 +523,6 @@ export const deleteAgent = /* GraphQL */ `
       id
       name
       properties {
-        items {
-          id
-          title
-          shortDescription
-          longDescription
-          type
-          price
-          rentPerMonth
-          rentPerDay
-          mainImage
-          images
-          createdAt
-          updatedAt
-          userBoughtPropertiesId
-          agentPropertiesId
-          propertyOwnerId
-          propertyAgentId
-          propertyLocationId
-          __typename
-        }
         nextToken
         __typename
       }
