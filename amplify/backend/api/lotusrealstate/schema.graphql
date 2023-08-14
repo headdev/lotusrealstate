@@ -1,0 +1,692 @@
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
+
+type Agent @aws_cognito_user_pools {
+  createdAt: AWSDateTime!
+  id: ID!
+  name: String!
+  properties(filter: ModelPropertyFilterInput, limit: Int, nextToken: String, sortDirection: ModelSortDirection): ModelPropertyConnection
+  updatedAt: AWSDateTime
+}
+
+type Location {
+  address: String!
+  createdAt: AWSDateTime!
+  id: ID!
+  lat: Float!
+  lon: Float!
+  updatedAt: AWSDateTime!
+}
+
+type ModelAgentConnection @aws_cognito_user_pools {
+  items: [Agent]!
+  nextToken: String
+}
+
+type ModelLocationConnection {
+  items: [Location]!
+  nextToken: String
+}
+
+type ModelPropertyConnection @aws_api_key @aws_cognito_user_pools {
+  items: [Property]!
+  nextToken: String
+}
+
+type ModelRentalConnection @aws_cognito_user_pools {
+  items: [Rental]!
+  nextToken: String
+}
+
+type ModelUserConnection @aws_cognito_user_pools {
+  items: [User]!
+  nextToken: String
+}
+
+type Mutation {
+  createAgent(condition: ModelAgentConditionInput, input: CreateAgentInput!): Agent @aws_cognito_user_pools
+  createLocation(condition: ModelLocationConditionInput, input: CreateLocationInput!): Location
+  createProperty(condition: ModelPropertyConditionInput, input: CreatePropertyInput!): Property @aws_cognito_user_pools
+  createRental(condition: ModelRentalConditionInput, input: CreateRentalInput!): Rental
+  createUser(condition: ModelUserConditionInput, input: CreateUserInput!): User @aws_cognito_user_pools
+  deleteAgent(condition: ModelAgentConditionInput, input: DeleteAgentInput!): Agent @aws_cognito_user_pools
+  deleteLocation(condition: ModelLocationConditionInput, input: DeleteLocationInput!): Location
+  deleteProperty(condition: ModelPropertyConditionInput, input: DeletePropertyInput!): Property @aws_cognito_user_pools
+  deleteRental(condition: ModelRentalConditionInput, input: DeleteRentalInput!): Rental
+  deleteUser(condition: ModelUserConditionInput, input: DeleteUserInput!): User @aws_cognito_user_pools
+  updateAgent(condition: ModelAgentConditionInput, input: UpdateAgentInput!): Agent @aws_cognito_user_pools
+  updateLocation(condition: ModelLocationConditionInput, input: UpdateLocationInput!): Location
+  updateProperty(condition: ModelPropertyConditionInput, input: UpdatePropertyInput!): Property @aws_cognito_user_pools
+  updateRental(condition: ModelRentalConditionInput, input: UpdateRentalInput!): Rental
+  updateUser(condition: ModelUserConditionInput, input: UpdateUserInput!): User @aws_cognito_user_pools
+}
+
+type Property @aws_cognito_user_pools {
+  agent: Agent
+  agentPropertiesId: ID
+  amenities: [amenities]
+  createdAt: AWSDateTime!
+  id: ID!
+  images: [String]
+  location: Location
+  longDescription: String
+  mainImage: String
+  owner: User
+  price: Float!
+  propertyAgentId: ID
+  propertyLocationId: ID
+  propertyOwnerId: ID
+  rentPerDay: Float
+  rentPerMonth: Float
+  shortDescription: String!
+  title: String!
+  type: PropertyType!
+  updatedAt: AWSDateTime
+  userBoughtPropertiesId: ID
+}
+
+type Query {
+  getAgent(id: ID!): Agent @aws_cognito_user_pools
+  getLocation(id: ID!): Location
+  getProperty(id: ID!): Property @aws_cognito_user_pools
+  getRental(id: ID!): Rental
+  getUser(id: ID!): User @aws_cognito_user_pools
+  listAgents(filter: ModelAgentFilterInput, limit: Int, nextToken: String): ModelAgentConnection @aws_cognito_user_pools
+  listLocations(filter: ModelLocationFilterInput, limit: Int, nextToken: String): ModelLocationConnection
+  listProperties(filter: ModelPropertyFilterInput, limit: Int, nextToken: String): ModelPropertyConnection @aws_cognito_user_pools
+  listRentals(filter: ModelRentalFilterInput, limit: Int, nextToken: String): ModelRentalConnection
+  listUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String): ModelUserConnection @aws_cognito_user_pools
+}
+
+type Rental {
+  createdAt: AWSDateTime!
+  id: ID!
+  nights: Int!
+  paidAmount: Float!
+  property: Property
+  rentalPropertyId: ID
+  rentalUserId: ID
+  updatedAt: AWSDateTime
+  user: User
+  userRentedPropertiesId: ID
+}
+
+type Subscription {
+  onCreateAgent(filter: ModelSubscriptionAgentFilterInput): Agent @aws_cognito_user_pools @aws_subscribe(mutations : ["createAgent"])
+  onCreateLocation(filter: ModelSubscriptionLocationFilterInput): Location @aws_subscribe(mutations : ["createLocation"])
+  onCreateProperty(filter: ModelSubscriptionPropertyFilterInput, owner: String): Property @aws_cognito_user_pools @aws_subscribe(mutations : ["createProperty"])
+  onCreateRental(filter: ModelSubscriptionRentalFilterInput): Rental @aws_subscribe(mutations : ["createRental"])
+  onCreateUser(filter: ModelSubscriptionUserFilterInput, owner: String): User @aws_cognito_user_pools @aws_subscribe(mutations : ["createUser"])
+  onDeleteAgent(filter: ModelSubscriptionAgentFilterInput): Agent @aws_cognito_user_pools @aws_subscribe(mutations : ["deleteAgent"])
+  onDeleteLocation(filter: ModelSubscriptionLocationFilterInput): Location @aws_subscribe(mutations : ["deleteLocation"])
+  onDeleteProperty(filter: ModelSubscriptionPropertyFilterInput, owner: String): Property @aws_cognito_user_pools @aws_subscribe(mutations : ["deleteProperty"])
+  onDeleteRental(filter: ModelSubscriptionRentalFilterInput): Rental @aws_subscribe(mutations : ["deleteRental"])
+  onDeleteUser(filter: ModelSubscriptionUserFilterInput, owner: String): User @aws_cognito_user_pools @aws_subscribe(mutations : ["deleteUser"])
+  onUpdateAgent(filter: ModelSubscriptionAgentFilterInput): Agent @aws_cognito_user_pools @aws_subscribe(mutations : ["updateAgent"])
+  onUpdateLocation(filter: ModelSubscriptionLocationFilterInput): Location @aws_subscribe(mutations : ["updateLocation"])
+  onUpdateProperty(filter: ModelSubscriptionPropertyFilterInput, owner: String): Property @aws_cognito_user_pools @aws_subscribe(mutations : ["updateProperty"])
+  onUpdateRental(filter: ModelSubscriptionRentalFilterInput): Rental @aws_subscribe(mutations : ["updateRental"])
+  onUpdateUser(filter: ModelSubscriptionUserFilterInput, owner: String): User @aws_cognito_user_pools @aws_subscribe(mutations : ["updateUser"])
+}
+
+type User @aws_cognito_user_pools {
+  address: String
+  boughtProperties(filter: ModelPropertyFilterInput, limit: Int, nextToken: String, sortDirection: ModelSortDirection): ModelPropertyConnection
+  createdAt: AWSDateTime!
+  email: AWSEmail!
+  id: ID!
+  idNumber: String
+  idType: [idType]
+  images: String
+  name: String!
+  owner: String
+  perfilfoto: String
+  rentedProperties(filter: ModelRentalFilterInput, limit: Int, nextToken: String, sortDirection: ModelSortDirection): ModelRentalConnection
+  updatedAt: AWSDateTime
+  username: String
+}
+
+enum ModelAttributeTypes {
+  _null
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+enum PropertyType {
+  APARTMENT
+  CABIN
+  HOUSE
+  RANCH
+}
+
+enum amenities {
+  al
+  ascensor
+  gym
+  loby
+  mar
+  piscina
+  roof
+  vista
+}
+
+enum idType {
+  cedula
+  conducir
+  de
+  licencia
+  pasaporte
+}
+
+input CreateAgentInput {
+  createdAt: AWSDateTime
+  id: ID
+  name: String!
+  updatedAt: AWSDateTime
+}
+
+input CreateLocationInput {
+  address: String!
+  id: ID
+  lat: Float!
+  lon: Float!
+}
+
+input CreatePropertyInput {
+  agentPropertiesId: ID
+  amenities: [amenities]
+  createdAt: AWSDateTime
+  id: ID
+  images: [String]
+  longDescription: String
+  mainImage: String
+  price: Float!
+  propertyAgentId: ID
+  propertyLocationId: ID
+  propertyOwnerId: ID
+  rentPerDay: Float
+  rentPerMonth: Float
+  shortDescription: String!
+  title: String!
+  type: PropertyType!
+  updatedAt: AWSDateTime
+  userBoughtPropertiesId: ID
+}
+
+input CreateRentalInput {
+  createdAt: AWSDateTime
+  id: ID
+  nights: Int!
+  paidAmount: Float!
+  rentalPropertyId: ID
+  rentalUserId: ID
+  updatedAt: AWSDateTime
+  userRentedPropertiesId: ID
+}
+
+input CreateUserInput {
+  address: String
+  createdAt: AWSDateTime
+  email: AWSEmail!
+  id: ID
+  idNumber: String
+  idType: [idType]
+  images: String
+  name: String!
+  perfilfoto: String
+  updatedAt: AWSDateTime
+  username: String
+}
+
+input DeleteAgentInput {
+  id: ID!
+}
+
+input DeleteLocationInput {
+  id: ID!
+}
+
+input DeletePropertyInput {
+  id: ID!
+}
+
+input DeleteRentalInput {
+  id: ID!
+}
+
+input DeleteUserInput {
+  id: ID!
+}
+
+input ModelAgentConditionInput {
+  and: [ModelAgentConditionInput]
+  createdAt: ModelStringInput
+  name: ModelStringInput
+  not: ModelAgentConditionInput
+  or: [ModelAgentConditionInput]
+  updatedAt: ModelStringInput
+}
+
+input ModelAgentFilterInput {
+  and: [ModelAgentFilterInput]
+  createdAt: ModelStringInput
+  id: ModelIDInput
+  name: ModelStringInput
+  not: ModelAgentFilterInput
+  or: [ModelAgentFilterInput]
+  updatedAt: ModelStringInput
+}
+
+input ModelBooleanInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  eq: Boolean
+  ne: Boolean
+}
+
+input ModelFloatInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  between: [Float]
+  eq: Float
+  ge: Float
+  gt: Float
+  le: Float
+  lt: Float
+  ne: Float
+}
+
+input ModelIDInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  beginsWith: ID
+  between: [ID]
+  contains: ID
+  eq: ID
+  ge: ID
+  gt: ID
+  le: ID
+  lt: ID
+  ne: ID
+  notContains: ID
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  between: [Int]
+  eq: Int
+  ge: Int
+  gt: Int
+  le: Int
+  lt: Int
+  ne: Int
+}
+
+input ModelLocationConditionInput {
+  address: ModelStringInput
+  and: [ModelLocationConditionInput]
+  lat: ModelFloatInput
+  lon: ModelFloatInput
+  not: ModelLocationConditionInput
+  or: [ModelLocationConditionInput]
+}
+
+input ModelLocationFilterInput {
+  address: ModelStringInput
+  and: [ModelLocationFilterInput]
+  id: ModelIDInput
+  lat: ModelFloatInput
+  lon: ModelFloatInput
+  not: ModelLocationFilterInput
+  or: [ModelLocationFilterInput]
+}
+
+input ModelPropertyConditionInput {
+  agentPropertiesId: ModelIDInput
+  amenities: ModelamenitiesListInput
+  and: [ModelPropertyConditionInput]
+  createdAt: ModelStringInput
+  images: ModelStringInput
+  longDescription: ModelStringInput
+  mainImage: ModelStringInput
+  not: ModelPropertyConditionInput
+  or: [ModelPropertyConditionInput]
+  price: ModelFloatInput
+  propertyAgentId: ModelIDInput
+  propertyLocationId: ModelIDInput
+  propertyOwnerId: ModelIDInput
+  rentPerDay: ModelFloatInput
+  rentPerMonth: ModelFloatInput
+  shortDescription: ModelStringInput
+  title: ModelStringInput
+  type: ModelPropertyTypeInput
+  updatedAt: ModelStringInput
+  userBoughtPropertiesId: ModelIDInput
+}
+
+input ModelPropertyFilterInput {
+  agentPropertiesId: ModelIDInput
+  amenities: ModelamenitiesListInput
+  and: [ModelPropertyFilterInput]
+  createdAt: ModelStringInput
+  id: ModelIDInput
+  images: ModelStringInput
+  longDescription: ModelStringInput
+  mainImage: ModelStringInput
+  not: ModelPropertyFilterInput
+  or: [ModelPropertyFilterInput]
+  price: ModelFloatInput
+  propertyAgentId: ModelIDInput
+  propertyLocationId: ModelIDInput
+  propertyOwnerId: ModelIDInput
+  rentPerDay: ModelFloatInput
+  rentPerMonth: ModelFloatInput
+  shortDescription: ModelStringInput
+  title: ModelStringInput
+  type: ModelPropertyTypeInput
+  updatedAt: ModelStringInput
+  userBoughtPropertiesId: ModelIDInput
+}
+
+input ModelPropertyTypeInput {
+  eq: PropertyType
+  ne: PropertyType
+}
+
+input ModelRentalConditionInput {
+  and: [ModelRentalConditionInput]
+  createdAt: ModelStringInput
+  nights: ModelIntInput
+  not: ModelRentalConditionInput
+  or: [ModelRentalConditionInput]
+  paidAmount: ModelFloatInput
+  rentalPropertyId: ModelIDInput
+  rentalUserId: ModelIDInput
+  updatedAt: ModelStringInput
+  userRentedPropertiesId: ModelIDInput
+}
+
+input ModelRentalFilterInput {
+  and: [ModelRentalFilterInput]
+  createdAt: ModelStringInput
+  id: ModelIDInput
+  nights: ModelIntInput
+  not: ModelRentalFilterInput
+  or: [ModelRentalFilterInput]
+  paidAmount: ModelFloatInput
+  rentalPropertyId: ModelIDInput
+  rentalUserId: ModelIDInput
+  updatedAt: ModelStringInput
+  userRentedPropertiesId: ModelIDInput
+}
+
+input ModelSizeInput {
+  between: [Int]
+  eq: Int
+  ge: Int
+  gt: Int
+  le: Int
+  lt: Int
+  ne: Int
+}
+
+input ModelStringInput {
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  beginsWith: String
+  between: [String]
+  contains: String
+  eq: String
+  ge: String
+  gt: String
+  le: String
+  lt: String
+  ne: String
+  notContains: String
+  size: ModelSizeInput
+}
+
+input ModelSubscriptionAgentFilterInput {
+  and: [ModelSubscriptionAgentFilterInput]
+  createdAt: ModelSubscriptionStringInput
+  id: ModelSubscriptionIDInput
+  name: ModelSubscriptionStringInput
+  or: [ModelSubscriptionAgentFilterInput]
+  updatedAt: ModelSubscriptionStringInput
+}
+
+input ModelSubscriptionBooleanInput {
+  eq: Boolean
+  ne: Boolean
+}
+
+input ModelSubscriptionFloatInput {
+  between: [Float]
+  eq: Float
+  ge: Float
+  gt: Float
+  in: [Float]
+  le: Float
+  lt: Float
+  ne: Float
+  notIn: [Float]
+}
+
+input ModelSubscriptionIDInput {
+  beginsWith: ID
+  between: [ID]
+  contains: ID
+  eq: ID
+  ge: ID
+  gt: ID
+  in: [ID]
+  le: ID
+  lt: ID
+  ne: ID
+  notContains: ID
+  notIn: [ID]
+}
+
+input ModelSubscriptionIntInput {
+  between: [Int]
+  eq: Int
+  ge: Int
+  gt: Int
+  in: [Int]
+  le: Int
+  lt: Int
+  ne: Int
+  notIn: [Int]
+}
+
+input ModelSubscriptionLocationFilterInput {
+  address: ModelSubscriptionStringInput
+  and: [ModelSubscriptionLocationFilterInput]
+  id: ModelSubscriptionIDInput
+  lat: ModelSubscriptionFloatInput
+  lon: ModelSubscriptionFloatInput
+  or: [ModelSubscriptionLocationFilterInput]
+}
+
+input ModelSubscriptionPropertyFilterInput {
+  amenities: ModelSubscriptionStringInput
+  and: [ModelSubscriptionPropertyFilterInput]
+  createdAt: ModelSubscriptionStringInput
+  id: ModelSubscriptionIDInput
+  images: ModelSubscriptionStringInput
+  longDescription: ModelSubscriptionStringInput
+  mainImage: ModelSubscriptionStringInput
+  or: [ModelSubscriptionPropertyFilterInput]
+  price: ModelSubscriptionFloatInput
+  rentPerDay: ModelSubscriptionFloatInput
+  rentPerMonth: ModelSubscriptionFloatInput
+  shortDescription: ModelSubscriptionStringInput
+  title: ModelSubscriptionStringInput
+  type: ModelSubscriptionStringInput
+  updatedAt: ModelSubscriptionStringInput
+}
+
+input ModelSubscriptionRentalFilterInput {
+  and: [ModelSubscriptionRentalFilterInput]
+  createdAt: ModelSubscriptionStringInput
+  id: ModelSubscriptionIDInput
+  nights: ModelSubscriptionIntInput
+  or: [ModelSubscriptionRentalFilterInput]
+  paidAmount: ModelSubscriptionFloatInput
+  updatedAt: ModelSubscriptionStringInput
+}
+
+input ModelSubscriptionStringInput {
+  beginsWith: String
+  between: [String]
+  contains: String
+  eq: String
+  ge: String
+  gt: String
+  in: [String]
+  le: String
+  lt: String
+  ne: String
+  notContains: String
+  notIn: [String]
+}
+
+input ModelSubscriptionUserFilterInput {
+  address: ModelSubscriptionStringInput
+  and: [ModelSubscriptionUserFilterInput]
+  createdAt: ModelSubscriptionStringInput
+  email: ModelSubscriptionStringInput
+  id: ModelSubscriptionIDInput
+  idNumber: ModelSubscriptionStringInput
+  idType: ModelSubscriptionStringInput
+  images: ModelSubscriptionStringInput
+  name: ModelSubscriptionStringInput
+  or: [ModelSubscriptionUserFilterInput]
+  perfilfoto: ModelSubscriptionStringInput
+  updatedAt: ModelSubscriptionStringInput
+  username: ModelSubscriptionStringInput
+}
+
+input ModelUserConditionInput {
+  address: ModelStringInput
+  and: [ModelUserConditionInput]
+  createdAt: ModelStringInput
+  email: ModelStringInput
+  idNumber: ModelStringInput
+  idType: ModelidTypeListInput
+  images: ModelStringInput
+  name: ModelStringInput
+  not: ModelUserConditionInput
+  or: [ModelUserConditionInput]
+  perfilfoto: ModelStringInput
+  updatedAt: ModelStringInput
+  username: ModelStringInput
+}
+
+input ModelUserFilterInput {
+  address: ModelStringInput
+  and: [ModelUserFilterInput]
+  createdAt: ModelStringInput
+  email: ModelStringInput
+  id: ModelIDInput
+  idNumber: ModelStringInput
+  idType: ModelidTypeListInput
+  images: ModelStringInput
+  name: ModelStringInput
+  not: ModelUserFilterInput
+  or: [ModelUserFilterInput]
+  perfilfoto: ModelStringInput
+  updatedAt: ModelStringInput
+  username: ModelStringInput
+}
+
+input ModelamenitiesListInput {
+  contains: amenities
+  eq: [amenities]
+  ne: [amenities]
+  notContains: amenities
+}
+
+input ModelidTypeListInput {
+  contains: idType
+  eq: [idType]
+  ne: [idType]
+  notContains: idType
+}
+
+input UpdateAgentInput {
+  createdAt: AWSDateTime
+  id: ID!
+  name: String
+  updatedAt: AWSDateTime
+}
+
+input UpdateLocationInput {
+  address: String
+  id: ID!
+  lat: Float
+  lon: Float
+}
+
+input UpdatePropertyInput {
+  agentPropertiesId: ID
+  amenities: [amenities]
+  createdAt: AWSDateTime
+  id: ID!
+  images: [String]
+  longDescription: String
+  mainImage: String
+  price: Float
+  propertyAgentId: ID
+  propertyLocationId: ID
+  propertyOwnerId: ID
+  rentPerDay: Float
+  rentPerMonth: Float
+  shortDescription: String
+  title: String
+  type: PropertyType
+  updatedAt: AWSDateTime
+  userBoughtPropertiesId: ID
+}
+
+input UpdateRentalInput {
+  createdAt: AWSDateTime
+  id: ID!
+  nights: Int
+  paidAmount: Float
+  rentalPropertyId: ID
+  rentalUserId: ID
+  updatedAt: AWSDateTime
+  userRentedPropertiesId: ID
+}
+
+input UpdateUserInput {
+  address: String
+  createdAt: AWSDateTime
+  email: AWSEmail
+  id: ID!
+  idNumber: String
+  idType: [idType]
+  images: String
+  name: String
+  perfilfoto: String
+  updatedAt: AWSDateTime
+  username: String
+}

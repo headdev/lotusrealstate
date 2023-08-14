@@ -42,6 +42,7 @@ export interface PostDataType {
   title: string;
   featuredImage: string;
   desc?: string;
+  desc2?: string;
   commentCount: number;
   viewdCount: number;
   readingTime: number;
@@ -65,6 +66,7 @@ export interface StayDataType {
   date: string;
   href: string;
   title: string;
+  description: string;
   featuredImage: string;
   commentCount: number;
   viewCount: number;

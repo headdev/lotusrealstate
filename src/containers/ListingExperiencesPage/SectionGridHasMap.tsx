@@ -23,10 +23,13 @@ const SectionGridHasMap: FC<SectionGridHasMapProps> = () => {
         {/* CARDSSSS */}
         <div className="min-h-screen w-full xl:w-[780px] 2xl:w-[880px] flex-shrink-0 xl:px-8 ">
           <Heading2
-            heading="Nuestros ultimos proyectos"
+            heading="Experiences in Tokyo"
             subHeading={
               <span className="block text-neutral-500 dark:text-neutral-400 mt-3">
-                +56 proyectos en LATAM
+                233 experiences
+                <span className="mx-2">·</span>
+                Aug 12 - 18
+                <span className="mx-2">·</span>2 Guests
               </span>
             }
           />
@@ -70,10 +73,10 @@ const SectionGridHasMap: FC<SectionGridHasMapProps> = () => {
             />
           )}
 
-          <div className="fixed xl:sticky top-0 xl:top-[88px] left-0 w-full h-full xl:h-[calc(100vh-88px)] rounded-md overflow-hidden">
-            <div className="absolute bottom-5 left-3 lg:bottom-auto lg:top-2.5 lg:left-1/2 transform lg:-translate-x-1/2 py-2 px-4 bg-white shadow-xl z-10 rounded-2xl min-w-max">
+          <div className="text-black fixed xl:sticky top-0 xl:top-[88px] left-0 w-full h-full xl:h-[calc(100vh-88px)] rounded-md overflow-hidden">
+            <div className="text-black absolute bottom-5 left-3 lg:bottom-auto lg:top-2.5 lg:left-1/2 transform lg:-translate-x-1/2 py-2 px-4 bg-white shadow-xl z-10 rounded-2xl min-w-max">
               <Checkbox
-                className="text-xs xl:text-sm text-neutral-800"
+                className="text-xs xl:text-sm text-black"
                 name="xx"
                 label="Search as I move the map"
               />

@@ -16,12 +16,12 @@ const typeOfPaces = [
   },
   {
     name: "Private room",
-    description: "Have your own room and share some common spaces",
+    description: "have your own house and share some common spaces",
   },
   {
     name: "Hotel room",
     description:
-      "Have a private or shared room in a boutique hotel, hostel, and more",
+      "Have a private or shared land in a boutique hotel, hostel, and more",
   },
   {
     name: "Shared room",
@@ -53,7 +53,7 @@ const moreFilter2 = [
 const moreFilter3 = [
   { name: " House" },
   { name: "Bed and breakfast" },
-  { name: "Apartment", defaultChecked: true },
+  { name: "Apartamento", defaultChecked: true },
   { name: " Boutique hotel" },
   { name: " Bungalow" },
   { name: " Chalet", defaultChecked: true },
@@ -417,7 +417,7 @@ const TabFilters = () => {
                         </div>
                       </div>
                       <div className="py-7">
-                        <h3 className="text-xl font-medium">Property type</h3>
+                        <h3 className="text-xl font-medium">Tipo de propiedad</h3>
                         <div className="mt-6 relative ">
                           {renderMoreFilterItem(moreFilter3)}
                         </div>

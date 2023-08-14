@@ -84,7 +84,7 @@ const TabFilters = () => {
                 open ? "!border-primary-500 " : ""
               }`}
             >
-              <span>Tipo de propiedad</span>
+              <span>Type of experiences</span>
               <i className="las la-angle-down ml-2"></i>
             </Popover.Button>
             <Transition
@@ -209,81 +209,6 @@ const TabFilters = () => {
               leaveTo="opacity-0 translate-y-1"
             >
               <Popover.Panel className="absolute z-10 w-screen max-w-sm px-4 mt-3 left-0 sm:px-0 ">
-                <div className="overflow-hidden rounded-2xl shadow-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700">
-                  <div className="relative flex flex-col px-5 py-6 space-y-8">
-                    <div className="space-y-5">
-                      <span className="font-medium">Price per day</span>
-                      <Slider
-                        range
-                        min={0}
-                        max={2000}
-                        defaultValue={[rangePrices[0], rangePrices[1]]}
-                        allowCross={false}
-                        onChange={(e) => setRangePrices(e as number[])}
-                      />
-                    </div>
-
-                    <div className="flex justify-between space-x-5">
-                      <div>
-                        <label
-                          htmlFor="minPrice"
-                          className="block text-sm font-medium text-neutral-700 dark:text-neutral-300"
-                        >
-                          Min price
-                        </label>
-                        <div className="mt-1 relative rounded-md">
-                          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <span className="text-neutral-500 sm:text-sm">
-                              $
-                            </span>
-                          </div>
-                          <input
-                            type="text"
-                            name="minPrice"
-                            disabled
-                            id="minPrice"
-                            className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-3 sm:text-sm border-neutral-200 rounded-full text-neutral-900"
-                            value={rangePrices[0]}
-                          />
-                        </div>
-                      </div>
-                      <div>
-                        <label
-                          htmlFor="maxPrice"
-                          className="block text-sm font-medium text-neutral-700 dark:text-neutral-300"
-                        >
-                          Max price
-                        </label>
-                        <div className="mt-1 relative rounded-md">
-                          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <span className="text-neutral-500 sm:text-sm">
-                              $
-                            </span>
-                          </div>
-                          <input
-                            type="text"
-                            disabled
-                            name="maxPrice"
-                            id="maxPrice"
-                            className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-3 sm:text-sm border-neutral-200 rounded-full text-neutral-900"
-                            value={rangePrices[1]}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="p-5 bg-neutral-50 dark:bg-neutral-900 dark:border-t dark:border-neutral-800 flex items-center justify-between">
-                    <ButtonThird onClick={close} sizeClass="px-4 py-2 sm:px-5">
-                      Clear
-                    </ButtonThird>
-                    <ButtonPrimary
-                      onClick={close}
-                      sizeClass="px-4 py-2 sm:px-5"
-                    >
-                      Apply
-                    </ButtonPrimary>
-                  </div>
-                </div>
               </Popover.Panel>
             </Transition>
           </>

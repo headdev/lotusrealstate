@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Page } from "./types";
@@ -42,7 +43,7 @@ import useWindowSize from "hooks/useWindowResize";
 import PageHome3 from "containers/PageHome/PageHome3";
 import ListingStayDetailPage from "containers/ListingDetailPage/listing-stay-detail/ListingStayDetailPage";
 import ListingExperiencesDetailPage from "containers/ListingDetailPage/listing-experiences-detail/ListingExperiencesDetailPage";
-
+import PropertyDetail from "containers/ListingDetailPage/listing-stay-detail/PropertyDetail";
 
 export const pages: Page[] = [
   //{ path: "/", exact: true, component: PageHome }, // home anulado
@@ -55,8 +56,10 @@ export const pages: Page[] = [
   { path: "/listing-stay", component: ListingStayPage },
   { path: "/listing-stay-map", component: ListingStayMapPage },
   { path: "/listing-stay-detail", component: ListingStayDetailPage },
-  { path: "/property-detail", component: ListingStayDetailPage},
   //
+  { path: "/property-detail", component: ListingStayDetailPage },
+  { path: "/kaan-kuja", component: ListingStayDetailPage },
+  //vamos a hacer esta primera pero la dejaré dinámica, no hay que hacer una por cada propiedad que t quieto esto jm
   {
     path: "/listing-experiences",
     component: ListingExperiencesPage,
@@ -70,8 +73,12 @@ export const pages: Page[] = [
     component: ListingExperiencesDetailPage,
   },
   //
+
+  //
   { path: "/listing-real-estate-map", component: ListingRealEstateMapPage },
   { path: "/listing-real-estate", component: ListingRealEstatePage },
+  //
+
   //
   { path: "/checkout", component: CheckOutPage },
   { path: "/pay-done", component: PayPage },
@@ -121,6 +128,11 @@ const MyRoutes = () => {
           return <Route key={path} element={<Component />} path={path} />;
         })}
         <Route element={<Page404 />} />
+        <Route
+        path= "/property-detail/:id" 
+        element= {<PropertyDetail/>}
+        />
+ 
       </Routes>
 
       {WIN_WIDTH < 768 && <FooterNav />}

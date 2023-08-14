@@ -3,12 +3,10 @@
     "id": "id1",
     "authorId": 10,
     "date": "Jun 13, 2023",
-    "href": "/property-detail/id1",
+    "href": "#",
     "listingCategoryId": 17,
     "title": "Kaan Kuja",
     "featuredImage": "https://lotusrevenue.com/wp-content/uploads/2023/04/Fachada-1-1.jpg",
-        "description":"Imagina pasar la tarde sintiendo el viento en tu rostro dentro de un nido retomando el animal en ti y viviendo la vida con los ojos de un ser nuevo en cada respiro, en cada latir, en cada bocado y comprender este es mi lugar, este es mi espacio, estoy en casa",
-
     "galleryImgs": [
       "https://lotusrevenue.com/wp-content/uploads/2023/04/Habitacion-1.jpg",
       "https://lotusrevenue.com/wp-content/uploads/2023/04/Lobby.jpg",
@@ -40,11 +38,10 @@
     "id": "id_2",
     "authorId": 1,
     "date": "Jun 13, 2023",
-    "href": "/property-detail/id_2",
+    "href": "#",
     "listingCategoryId": 9,
     "title": "Distrito Puerto",
     "featuredImage": "https://lotusrevenue.com/wp-content/uploads/2023/04/Puerto-8.jpg",
-    "description":"hola",
     "galleryImgs": [
       "https://lotusrevenue.com/wp-content/uploads/2023/04/puerto-1.jpg",
       "https://lotusrevenue.com/wp-content/uploads/2023/04/puerto-2.jpg",
@@ -72,12 +69,10 @@
     "id": "id_3",
     "authorId": 6,
     "date": "Jun 13, 2023",
-    "href": "/property-detail/id_3",
+    "href": "#",
     "listingCategoryId": 11,
     "title": "Malia Golf & Yacht Living",
     "featuredImage": "https://lotusrevenue.com/wp-content/uploads/2023/04/Fachada-1.jpg",
-        "description":"hola",
-
     "galleryImgs": [
       "https://lotusrevenue.com/wp-content/uploads/2023/04/Fachada-1.jpg",
       "https://lotusrevenue.com/wp-content/uploads/2023/04/Gym.jpg",
@@ -105,15 +100,12 @@
   },
   {
     "id": "id_4",
-    "href": "/property-detail/id_5",
-
     "authorId": 8,
     "date": "Jun 13, 2023",
+    "href": "#",
     "listingCategoryId": 6,
     "title": "San Lorenzo Garden & Condos",
     "featuredImage": "https://lotusrevenue.com/wp-content/uploads/2023/03/Thumb-2.jpg",
-        "description":"hola",
-
     "galleryImgs": [
       "https://lotusrevenue.com/wp-content/uploads/2023/03/Thumb-2.jpg"
     ],
@@ -135,12 +127,10 @@
     "id": "id_5",
     "authorId": 2,
     "date": "Jun 13, 2023",
-    "href": "/property-detail/id_5",
+    "href": "#",
     "listingCategoryId": 11,
     "title": "Litoral Ocean Condos",
     "featuredImage": "https://lotusrevenue.com/wp-content/uploads/2023/04/San-Lorenzo-thub.jpg",
-        "description":"hola",
-
     "galleryImgs": [
       "https://lotusrevenue.com/wp-content/uploads/2023/04/San-Lorenzo-3-1.jpg",
       "https://lotusrevenue.com/wp-content/uploads/2023/04/Sanlorenzo-2-1.jpg",
@@ -166,12 +156,10 @@
     "id": "id_6",
     "authorId": 4,
     "date": "Jun 13, 2023",
-    "href": "/property-detail/id_6",
+    "href": "#",
     "listingCategoryId": 7,
     "title": "Naia Naay",
     "featuredImage": "https://lotusrevenue.com/wp-content/uploads/2023/04/bulding-1.jpg",
-        "description":"hola",
-
     "galleryImgs": [
       "https://lotusrevenue.com/wp-content/uploads/2023/04/Building-2.jpg",
       "https://lotusrevenue.com/wp-content/uploads/2023/04/Restaurant.jpg",
@@ -196,12 +184,10 @@
     "id": "id_7",
     "authorId": 4,
     "date": "Jun 13, 2023",
-    "href": "/property-detail/id_7",
+    "href": "#",
     "listingCategoryId": 20,
     "title": "Villas Toh",
     "featuredImage": "https://lotusrevenue.com/wp-content/uploads/2023/04/Casa-Tho-Thumb.jpg",
-        "description":"hola",
-
     "galleryImgs": [
       "https://lotusrevenue.com/wp-content/uploads/2023/04/6.jpg",
       "https://lotusrevenue.com/wp-content/uploads/2023/04/7.jpg",
@@ -228,12 +214,10 @@
     "id": "id_8",
     "authorId": 8,
     "date": "Jun 13, 2023",
-    "href": "/property-detail/id_8",
+    "href": "#",
     "listingCategoryId": 10,
     "title": "Dalai",
     "featuredImage": "https://lotusrevenue.com/wp-content/uploads/2023/03/Dalai-Building.jpg",
-        "description":"hola",
-
     "galleryImgs": [
       "https://lotusrevenue.com/wp-content/uploads/2023/03/Dalai-Building-2.jpg",
       "https://lotusrevenue.com/wp-content/uploads/2023/03/Dalai-restaurant.jpg",
@@ -262,12 +246,10 @@
     "id": "id_9",
     "authorId": 1,
     "date": "Jun 13, 2023",
-    "href": "/property-detail/id_9",
+    "href": "#",
     "listingCategoryId": 8,
     "title": "Loch",
     "featuredImage": "https://lotusrevenue.com/wp-content/uploads/2023/03/Thum-loch.jpg",
-        "description":"hola",
-
     "galleryImgs": [
       "https://lotusrevenue.com/wp-content/uploads/2023/03/Spa-loch-2.jpg",
       "https://lotusrevenue.com/wp-content/uploads/2023/03/Bar.jpg",
@@ -294,12 +276,10 @@
     "id": "id_10",
     "authorId": 2,
     "date": "Jun 13, 2023",
-    "href": "/property-detail/id_10",
+    "href": "#",
     "listingCategoryId": 1,
     "title": "Distrito Arte",
     "featuredImage": "https://lotusrevenue.com/wp-content/uploads/2023/03/Thumb-distro-arte.jpg",
-        "description":"hola",
-
     "galleryImgs": [
       "https://lotusrevenue.com/wp-content/uploads/2023/03/Distrito-arte6.jpg",
       "https://lotusrevenue.com/wp-content/uploads/2023/03/Distrito-arte7.jpg",
@@ -326,12 +306,10 @@
     "id": "id_11",
     "authorId": 3,
     "date": "Jun 13, 2023",
-    "href": "/property-detail/id_11",
+    "href": "#",
     "listingCategoryId": 19,
     "title": "Soul",
     "featuredImage": "https://lotusrevenue.com/wp-content/uploads/2023/03/Thum-soul-1.jpg",
-        "description":"hola",
-
     "galleryImgs": [
       "https://lotusrevenue.com/wp-content/uploads/2023/03/spa.jpg",
       "https://lotusrevenue.com/wp-content/uploads/2023/03/Cenote-1.jpg",
@@ -358,12 +336,10 @@
     "id": "id_12",
     "authorId": 7,
     "date": "Jun 13, 2023",
-    "href": "/property-detail/id_12",
+    "href": "#",
     "listingCategoryId": 4,
     "title": "Zama Towers Elite",
     "featuredImage": "https://lotusrevenue.com/wp-content/uploads/2023/03/Fachada.jpg",
-        "description":"hola",
-
     "galleryImgs": [
       "https://lotusrevenue.com/wp-content/uploads/2023/03/Gym.jpg",
       "https://lotusrevenue.com/wp-content/uploads/2023/03/Lobby-1.jpg",

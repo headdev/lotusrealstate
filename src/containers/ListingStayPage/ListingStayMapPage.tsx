@@ -21,7 +21,7 @@ const ListingStayMapPage: FC<ListingStayMapPageProps> = ({
       data-nc-id="ListingStayMapPage"
     >
       <Helmet>
-        <title>otus real state</title>
+        <title>Chisfis || Booking React Template</title>
       </Helmet>
       <BgGlassmorphism />
 
@@ -40,7 +40,7 @@ const ListingStayMapPage: FC<ListingStayMapPageProps> = ({
         <div className="relative py-16">
           <BackgroundSection />
           <SectionSliderNewCategories
-            heading="Explore by types of stays"
+            heading="Explore by types of stays11"
             subHeading="Explore houses based on 10 types of stays"
             categoryCardType="card5"
             itemPerRow={5}

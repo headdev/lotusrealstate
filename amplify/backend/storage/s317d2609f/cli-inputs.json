@@ -1,0 +1,14 @@
+{
+  "resourceName": "s317d2609f",
+  "policyUUID": "17d2609f",
+  "bucketName": "lotusrealstateb439dbfa69fa4a0487363efdfed5dea4",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "S3Triggerd0d49828",
+  "groupAccess": {}
+}

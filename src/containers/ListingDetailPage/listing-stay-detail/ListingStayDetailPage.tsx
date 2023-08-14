@@ -445,7 +445,7 @@ const StayDetailPageContainer: FC<{}> = () => {
               loading="lazy"
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAGVJfZMAKYfZ71nzL_v5i3LjTTWnCYwTY&q=Eiffel+Tower,Paris+France"
+              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD4tbkObs5_VZoEvhOqmQaWRVwCyVtzNik&q=Eiffel+Tower,Paris+France"
             ></iframe>
           </div>
         </div>
@@ -533,10 +533,6 @@ const StayDetailPageContainer: FC<{}> = () => {
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
             <span>$119 x 3 night</span>
             <span>$357</span>
-          </div>
-          <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
-            <span>Service charge</span>
-            <span>$0</span>
           </div>
           <div className="border-b border-neutral-200 dark:border-neutral-700"></div>
           <div className="flex justify-between font-semibold">

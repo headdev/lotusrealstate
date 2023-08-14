@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import GallerySlider from "components/GallerySlider/GallerySlider";
 import { DEMO_STAY_LISTINGS } from "data/listings";
 import StartRating from "components/StartRating/StartRating";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BtnLikeIcon from "components/BtnLikeIcon/BtnLikeIcon";
 import SaleOffBadge from "components/SaleOffBadge/SaleOffBadge";
 import Badge from "shared/Badge/Badge";
@@ -32,6 +32,9 @@ const PropertyCardH: FC<PropertyCardHProps> = ({
     reviewCount,
     id,
   } = data;
+
+  const navigate = useNavigate();
+
 
   const renderSliderGallery = () => {
     return (
@@ -86,6 +89,9 @@ const PropertyCardH: FC<PropertyCardHProps> = ({
     );
   };
 
+  const handleVerMasClick = () => {
+    navigate(`/property-detail/${id}`);
+  };
   const renderContent = () => {
     return (
       <div className="flex-grow p-3 sm:pr-6 flex flex-col items-start">
@@ -122,11 +128,7 @@ const PropertyCardH: FC<PropertyCardHProps> = ({
             <span className="flex items-center justify-center px-3 py-2 border border-secondary-500 rounded leading-none text-base font-medium text-secondary-500">
               {`${price},000`}
             </span>
-            <button 
-        className="bg-blue-500 text-white"  
-      >
-        Ver más
-      </button>
+            <Link to={`/property-detail/${id}`}>Ver más</Link>
           </div>
         </div>
       </div>
@@ -144,7 +146,7 @@ const PropertyCardH: FC<PropertyCardHProps> = ({
         {renderContent()}
       </div>
       <BtnLikeIcon
-        colorClass={` bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 hover:bg-opacity-70 text-neutral-6000 dark:text-neutral-400`}
+        colorClass={` bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 hover:bg-op                        acity-70 text-neutral-6000 dark:text-neutral-400`}
         isLiked={like}
         className="absolute right-5 top-5 sm:right-3 sm:top-3 "
       />

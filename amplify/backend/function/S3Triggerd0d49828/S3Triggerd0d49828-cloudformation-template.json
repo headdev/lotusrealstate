@@ -2,47 +2,6 @@
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "{\"createdOn\":\"Windows\",\"createdBy\":\"Amplify\",\"createdWith\":\"12.2.4\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
   "Parameters": {
-    "REDIRECTURL": {
-      "Type": "String",
-      "Default": ""
-    },
-    "EMAILMESSAGE": {
-      "Type": "String",
-      "Default": ""
-    },
-    "EMAILSUBJECT": {
-      "Type": "String",
-      "Default": ""
-    },
-    "modules": {
-      "Type": "String",
-      "Default": "",
-      "Description": "Comma-delimited list of modules to be executed by a lambda trigger. Sent to resource as an env variable."
-    },
-    "resourceName": {
-      "Type": "String",
-      "Default": ""
-    },
-    "trigger": {
-      "Type": "String",
-      "Default": "true"
-    },
-    "functionName": {
-      "Type": "String",
-      "Default": ""
-    },
-    "roleName": {
-      "Type": "String",
-      "Default": ""
-    },
-    "parentResource": {
-      "Type": "String",
-      "Default": ""
-    },
-    "parentStack": {
-      "Type": "String",
-      "Default": ""
-    },
     "env": {
       "Type": "String"
     },
@@ -75,12 +34,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "lotusapp2ee2f779CustomMessage",
+            "S3Triggerd0d49828",
             {
               "Fn::Join": [
                 "",
                 [
-                  "lotusapp2ee2f779CustomMessage",
+                  "S3Triggerd0d49828",
                   "-",
                   {
                     "Ref": "env"
@@ -94,24 +53,6 @@
           "Variables": {
             "ENV": {
               "Ref": "env"
-            },
-            "MODULES": {
-              "Ref": "modules"
-            },
-            "REGION": {
-              "Ref": "AWS::Region"
-            },
-            "REDIRECTURL": {
-              "Ref": "REDIRECTURL"
-            },
-            "EMAILSUBJECT": {
-              "Ref": "EMAILSUBJECT"
-            },
-            "EMAILMESSAGE": {
-              "Ref": "EMAILMESSAGE"
-            },
-            "RESOURCENAME": {
-              "Ref": "resourceName"
             }
           }
         },
@@ -139,12 +80,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "lotusapp2ee2f779CustomMessage",
+            "S3Triggerd0d49828LambdaRoled0d49828",
             {
               "Fn::Join": [
                 "",
                 [
-                  "lotusapp2ee2f779CustomMessage",
+                  "S3Triggerd0d49828LambdaRoled0d49828",
                   "-",
                   {
                     "Ref": "env"
@@ -230,6 +171,11 @@
         ]
       }
     },
+    "Region": {
+      "Value": {
+        "Ref": "AWS::Region"
+      }
+    },
     "LambdaExecutionRole": {
       "Value": {
         "Ref": "LambdaExecutionRole"
@@ -241,11 +187,6 @@
           "LambdaExecutionRole",
           "Arn"
         ]
-      }
-    },
-    "Region": {
-      "Value": {
-        "Ref": "AWS::Region"
       }
     }
   }

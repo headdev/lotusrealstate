@@ -23,12 +23,10 @@ const SectionGridFilterCard: FC<SectionGridFilterCardProps> = ({
       data-nc-id="SectionGridFilterCard"
     >
       <Heading2
-        heading="Property in Tokyo"
+        heading="Property in Mexico"
         subHeading={
           <span className="block text-neutral-500 dark:text-neutral-400 mt-3">
-            233 Property
-            <span className="mx-2">·</span>
-            Aug 12 - 18
+            10 Propiedades
           </span>
         }
       />
@@ -42,7 +40,6 @@ const SectionGridFilterCard: FC<SectionGridFilterCardProps> = ({
         ))}
       </div>
       <div className="flex mt-16 justify-center items-center">
-        <Pagination />
       </div>
     </div>
   );

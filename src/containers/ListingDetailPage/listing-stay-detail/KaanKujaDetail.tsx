@@ -1,6 +1,4 @@
-import React, { FC } from "react";
-import { ArrowRightIcon, Squares2X2Icon } from "@heroicons/react/24/outline";
-import { Amenities_demos, includes_demo, PHOTOS } from "./constant";
+import React, { FC, Fragment, useState } from "react";
 import CommentListing from "components/CommentListing/CommentListing";
 import FiveStartIconForRate from "components/FiveStartIconForRate/FiveStartIconForRate";
 import StartRating from "components/StartRating/StartRating";
@@ -8,19 +6,34 @@ import Avatar from "shared/Avatar/Avatar";
 import Badge from "shared/Badge/Badge";
 import LikeSaveBtns from "components/LikeSaveBtns";
 import SectionDateRange from "../SectionDateRange";
+import StayDatesRangeInput from "./StayDatesRangeInput";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Amenities_demos, PHOTOS } from "./constant";
+import { Dialog, Transition } from "@headlessui/react";
+import { ArrowRightIcon, Squares2X2Icon } from "@heroicons/react/24/outline";
 import ButtonSecondary from "shared/Button/ButtonSecondary";
+import ButtonClose from "shared/ButtonClose/ButtonClose";
 import ButtonCircle from "shared/Button/ButtonCircle";
 import Input from "shared/Input/Input";
 import ButtonPrimary from "shared/Button/ButtonPrimary";
 import DetailPagetLayout from "../Layout";
-import RentalCarDatesRangeInput from "./RentalCarDatesRangeInput";
+import GuestsInput from "./GuestsInput";
 
-const ListingCarDetail: FC<{}> = () => {
-  // USE STATE
+const StayDetailPageContainer: FC<{}> = () => {
+  //
+
+  let [isOpenModalAmenities, setIsOpenModalAmenities] = useState(false);
 
   const thisPathname = useLocation().pathname;
   const router = useNavigate();
+
+  function closeModalAmenities() {
+    setIsOpenModalAmenities(false);
+  }
+
+  function openModalAmenities() {
+    setIsOpenModalAmenities(true);
+  }
 
   const handleOpenModalImageGallery = () => {
     router(`${thisPathname}/?modal=PHOTO_TOUR_SCROLLABLE`);
@@ -31,13 +44,13 @@ const ListingCarDetail: FC<{}> = () => {
       <div className="listingSection__wrap !space-y-6">
         {/* 1 */}
         <div className="flex justify-between items-center">
-          <Badge color="pink" name="BMW car" />
+          <Badge name="Wooden house" />
           <LikeSaveBtns />
         </div>
 
         {/* 2 */}
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">
-          BMW 3 Series Sedan
+          Beach House in Collingwood
         </h2>
 
         {/* 3 */}
@@ -54,7 +67,7 @@ const ListingCarDetail: FC<{}> = () => {
         <div className="flex items-center">
           <Avatar hasChecked sizeClass="h-10 w-10" radius="rounded-full" />
           <span className="ml-2.5 text-neutral-500 dark:text-neutral-400">
-            Car owner{" "}
+            Hosted by{" "}
             <span className="text-neutral-900 dark:text-neutral-200 font-medium">
               Kevin Francis
             </span>
@@ -66,47 +79,30 @@ const ListingCarDetail: FC<{}> = () => {
 
         {/* 6 */}
         <div className="flex items-center justify-between xl:justify-start space-x-8 xl:space-x-12 text-sm text-neutral-700 dark:text-neutral-300">
-          <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 text-center sm:text-left sm:space-x-3 ">
-            <i className="las la-user-friends text-2xl"></i>
-            <span className="">4 seats</span>
+          <div className="flex items-center space-x-3 ">
+            <i className=" las la-user text-2xl "></i>
+            <span className="">
+              6 <span className="hidden sm:inline-block">guests</span>
+            </span>
           </div>
-          <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 text-center sm:text-left sm:space-x-3 ">
-            <i className="las la-dharmachakra text-2xl"></i>
-            <span className=""> Auto gearbox</span>
+          <div className="flex items-center space-x-3">
+            <i className=" las la-bed text-2xl"></i>
+            <span className=" ">
+              6 <span className="hidden sm:inline-block">beds</span>
+            </span>
           </div>
-          <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 text-center sm:text-left sm:space-x-3 ">
-            <i className="las la-suitcase text-2xl"></i>
-            <span className=""> 2 bags</span>
+          <div className="flex items-center space-x-3">
+            <i className=" las la-bath text-2xl"></i>
+            <span className=" ">
+              3 <span className="hidden sm:inline-block">baths</span>
+            </span>
           </div>
-        </div>
-      </div>
-    );
-  };
-
-  //
-  const renderSectionTienIch = () => {
-    return (
-      <div className="listingSection__wrap">
-        <div>
-          <h2 className="text-2xl font-semibold">
-            Vehicle parameters & utilities{" "}
-          </h2>
-          <span className="block mt-2 text-neutral-500 dark:text-neutral-400">
-            Questions are at the heart of making things great.
-          </span>
-        </div>
-        <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
-        {/* 6 */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-6 gap-x-10 text-sm text-neutral-700 dark:text-neutral-300 ">
-          {/* TIEN ICH 1 */}
-          {Amenities_demos.map((item, index) => (
-            <div key={index} className="flex items-center space-x-4 ">
-              <div className="w-10 flex-shrink-0">
-                <img src={item.icon} alt="" />
-              </div>
-              <span>{item.name}</span>
-            </div>
-          ))}
+          <div className="flex items-center space-x-3">
+            <i className=" las la-door-open text-2xl"></i>
+            <span className=" ">
+              2 <span className="hidden sm:inline-block">bedrooms</span>
+            </span>
+          </div>
         </div>
       </div>
     );
@@ -115,20 +111,26 @@ const ListingCarDetail: FC<{}> = () => {
   const renderSection2 = () => {
     return (
       <div className="listingSection__wrap">
-        <h2 className="text-2xl font-semibold">Car descriptions</h2>
+        <h2 className="text-2xl font-semibold">Stay information</h2>
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
         <div className="text-neutral-6000 dark:text-neutral-300">
-          <p>
-            Until the all-new TUCSON hits the dealer showrooms you can check it
-            out in our Showroom Walkaround video. Watch the video and join our
-            product specialist as he gives you an up-close look of our latest
-            SUV
-            <br />
-            <br />
-            Questions are at the heart of making things great. Watch our
-            celebrity-filled TV ad and you’ll see that when we say “everything,”
-            we mean everything.
-          </p>
+          <span>
+            Providing lake views, The Symphony 9 Tam Coc in Ninh Binh provides
+            accommodation, an outdoor swimming pool, a bar, a shared lounge, a
+            garden and barbecue facilities. Complimentary WiFi is provided.
+          </span>
+          <br />
+          <br />
+          <span>
+            There is a private bathroom with bidet in all units, along with a
+            hairdryer and free toiletries.
+          </span>
+          <br /> <br />
+          <span>
+            The Symphony 9 Tam Coc offers a terrace. Both a bicycle rental
+            service and a car rental service are available at the accommodation,
+            while cycling can be enjoyed nearby.
+          </span>
         </div>
       </div>
     );
@@ -138,22 +140,145 @@ const ListingCarDetail: FC<{}> = () => {
     return (
       <div className="listingSection__wrap">
         <div>
-          <h2 className="text-2xl font-semibold">Include </h2>
+          <h2 className="text-2xl font-semibold">Amenities </h2>
           <span className="block mt-2 text-neutral-500 dark:text-neutral-400">
-            Included in the price
+            {` About the property's amenities and services`}
           </span>
         </div>
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
         {/* 6 */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 text-sm text-neutral-700 dark:text-neutral-300 ">
-          {includes_demo
-            .filter((_, i) => i < 12)
-            .map((item) => (
-              <div key={item.name} className="flex items-center space-x-3">
-                <i className="las la-check-circle text-2xl"></i>
-                <span>{item.name}</span>
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 text-sm text-neutral-700 dark:text-neutral-300 ">
+          {Amenities_demos.filter((_, i) => i < 12).map((item) => (
+            <div key={item.name} className="flex items-center space-x-3">
+              <i className={`text-3xl las ${item.icon}`}></i>
+              <span className=" ">{item.name}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* ----- */}
+        <div className="w-14 border-b border-neutral-200"></div>
+        <div>
+          <ButtonSecondary onClick={openModalAmenities}>
+            View more 20 amenities
+          </ButtonSecondary>
+        </div>
+        {renderMotalAmenities()}
+      </div>
+    );
+  };
+
+  const renderMotalAmenities = () => {
+    return (
+      <Transition appear show={isOpenModalAmenities} as={Fragment}>
+        <Dialog
+          as="div"
+          className="fixed inset-0 z-50 overflow-y-auto"
+          onClose={closeModalAmenities}
+        >
+          <div className="min-h-screen px-4 text-center">
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-40" />
+            </Transition.Child>
+
+            {/* This element is to trick the browser into centering the modal contents. */}
+            <span
+              className="inline-block h-screen align-middle"
+              aria-hidden="true"
+            >
+              &#8203;
+            </span>
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0 scale-95"
+              enterTo="opacity-100 scale-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100 scale-100"
+              leaveTo="opacity-0 scale-95"
+            >
+              <div className="inline-block py-8 h-screen w-full max-w-4xl">
+                <div className="inline-flex pb-2 flex-col w-full text-left align-middle transition-all transform overflow-hidden rounded-2xl bg-white dark:bg-neutral-900 dark:border dark:border-neutral-700 dark:text-neutral-100 shadow-xl h-full">
+                  <div className="relative flex-shrink-0 px-6 py-4 border-b border-neutral-200 dark:border-neutral-800 text-center">
+                    <h3
+                      className="text-lg font-medium leading-6 text-gray-900"
+                      id="headlessui-dialog-title-70"
+                    >
+                      Amenities
+                    </h3>
+                    <span className="absolute left-3 top-3">
+                      <ButtonClose onClick={closeModalAmenities} />
+                    </span>
+                  </div>
+                  <div className="px-8 overflow-auto text-neutral-700 dark:text-neutral-300 divide-y divide-neutral-200">
+                    {Amenities_demos.filter((_, i) => i < 1212).map((item) => (
+                      <div
+                        key={item.name}
+                        className="flex items-center py-2.5 sm:py-4 lg:py-5 space-x-5 lg:space-x-8"
+                      >
+                        <i
+                          className={`text-4xl text-neutral-6000 las ${item.icon}`}
+                        ></i>
+                        <span>{item.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
-            ))}
+            </Transition.Child>
+          </div>
+        </Dialog>
+      </Transition>
+    );
+  };
+
+  const renderSection4 = () => {
+    return (
+      <div className="listingSection__wrap">
+        {/* HEADING */}
+        <div>
+          <h2 className="text-2xl font-semibold">Room Rates </h2>
+          <span className="block mt-2 text-neutral-500 dark:text-neutral-400">
+            Prices may increase on weekends or holidays
+          </span>
+        </div>
+        <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
+        {/* CONTENT */}
+        <div className="flow-root">
+          <div className="text-sm sm:text-base text-neutral-6000 dark:text-neutral-300 -mb-4">
+            <div className="p-4 bg-neutral-100 dark:bg-neutral-800 flex justify-between items-center space-x-4 rounded-lg">
+              <span>Monday - Thursday</span>
+              <span>$199</span>
+            </div>
+            <div className="p-4  flex justify-between items-center space-x-4 rounded-lg">
+              <span>Monday - Thursday</span>
+              <span>$199</span>
+            </div>
+            <div className="p-4 bg-neutral-100 dark:bg-neutral-800 flex justify-between items-center space-x-4 rounded-lg">
+              <span>Friday - Sunday</span>
+              <span>$219</span>
+            </div>
+            <div className="p-4 flex justify-between items-center space-x-4 rounded-lg">
+              <span>Rent by month</span>
+              <span>-8.34 %</span>
+            </div>
+            <div className="p-4 bg-neutral-100 dark:bg-neutral-800 flex justify-between items-center space-x-4 rounded-lg">
+              <span>Minimum number of nights</span>
+              <span>1 night</span>
+            </div>
+            <div className="p-4 flex justify-between items-center space-x-4 rounded-lg">
+              <span>Max number of nights</span>
+              <span>90 nights</span>
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -163,7 +288,7 @@ const ListingCarDetail: FC<{}> = () => {
     return (
       <div className="listingSection__wrap">
         {/* HEADING */}
-        <h2 className="text-2xl font-semibold">Car Owner</h2>
+        <h2 className="text-2xl font-semibold">Host Information</h2>
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
 
         {/* host */}
@@ -339,52 +464,80 @@ const ListingCarDetail: FC<{}> = () => {
         <div>
           <h4 className="text-lg font-semibold">Cancellation policy</h4>
           <span className="block mt-3 text-neutral-500 dark:text-neutral-400">
-            Lock in this fantastic price today, cancel free of charge anytime.
-            Reserve now and pay at pick-up.
+            Refund 50% of the booking value when customers cancel the room
+            within 48 hours after successful booking and 14 days before the
+            check-in time. <br />
+            Then, cancel the room 14 days before the check-in time, get a 50%
+            refund of the total amount paid (minus the service fee).
           </span>
         </div>
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
 
         {/* CONTENT */}
         <div>
+          <h4 className="text-lg font-semibold">Check-in time</h4>
+          <div className="mt-3 text-neutral-500 dark:text-neutral-400 max-w-md text-sm sm:text-base">
+            <div className="flex space-x-10 justify-between p-3 bg-neutral-100 dark:bg-neutral-800 rounded-lg">
+              <span>Check-in</span>
+              <span>08:00 am - 12:00 am</span>
+            </div>
+            <div className="flex space-x-10 justify-between p-3">
+              <span>Check-out</span>
+              <span>02:00 pm - 04:00 pm</span>
+            </div>
+          </div>
+        </div>
+        <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
+
+        {/* CONTENT */}
+        <div>
           <h4 className="text-lg font-semibold">Special Note</h4>
-          <span className="block mt-3 text-neutral-500 dark:text-neutral-400">
-            We asked ourselves, “How can we make the dash not only look better,
-            but also give the driver a better look outside?” The unexpected
-            answer is having no hood above the available 10.25-inch digital
-            instrument cluster...
-          </span>
+          <div className="prose sm:prose">
+            <ul className="mt-3 text-neutral-500 dark:text-neutral-400 space-y-2">
+              <li>
+                Ban and I will work together to keep the landscape and
+                environment green and clean by not littering, not using
+                stimulants and respecting people around.
+              </li>
+              <li>Do not sing karaoke past 11:30</li>
+            </ul>
+          </div>
         </div>
       </div>
     );
   };
 
-  const renderSidebarPrice = () => {
+  const renderSidebar = () => {
     return (
       <div className="listingSectionSidebar__wrap shadow-xl">
         {/* PRICE */}
         <div className="flex justify-between">
           <span className="text-3xl font-semibold">
-            $19
+            $119
             <span className="ml-1 text-base font-normal text-neutral-500 dark:text-neutral-400">
-              /day
+              /night
             </span>
           </span>
           <StartRating />
         </div>
 
         {/* FORM */}
-        <form className="border border-neutral-200 dark:border-neutral-700 rounded-2xl">
-          <RentalCarDatesRangeInput />
+        <form className="flex flex-col border border-neutral-200 dark:border-neutral-700 rounded-3xl ">
+          <StayDatesRangeInput className="flex-1 z-[11]" />
+          <div className="w-full border-b border-neutral-200 dark:border-neutral-700"></div>
+          <GuestsInput className="flex-1" />
         </form>
 
         {/* SUM */}
-        <div className="flex flex-col space-y-4 ">
+        <div className="flex flex-col space-y-4">
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
-            <span>$19 x 3 day</span>
-            <span>$57</span>
+            <span>$119 x 3 night</span>
+            <span>$357</span>
           </div>
-
+          <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
+            <span>Service charge</span>
+            <span>$0</span>
+          </div>
           <div className="border-b border-neutral-200 dark:border-neutral-700"></div>
           <div className="flex justify-between font-semibold">
             <span>Total</span>
@@ -398,86 +551,35 @@ const ListingCarDetail: FC<{}> = () => {
     );
   };
 
-  const renderSidebarDetail = () => {
-    return (
-      <div className="listingSection__wrap lg:shadow-xl">
-        <span className="text-2xl font-semibold block">
-          Pick up and drop off
-        </span>
-        <div className="mt-8 flex">
-          <div className="flex-shrink-0 flex flex-col items-center py-2">
-            <span className="block w-6 h-6 rounded-full border border-neutral-400"></span>
-            <span className="block flex-grow border-l border-neutral-400 border-dashed my-1"></span>
-            <span className="block w-6 h-6 rounded-full border border-neutral-400"></span>
-          </div>
-          <div className="ml-4 space-y-14 text-sm">
-            <div className="flex flex-col space-y-2">
-              <span className=" text-neutral-500 dark:text-neutral-400">
-                Monday, August 12 · 10:00
-              </span>
-              <span className=" font-semibold">
-                Saint Petersburg City Center
-              </span>
-            </div>
-            <div className="flex flex-col space-y-2">
-              <span className=" text-neutral-500 dark:text-neutral-400">
-                Monday, August 16 · 10:00
-              </span>
-              <span className=" font-semibold">
-                Saint Petersburg City Center
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
   return (
-    <div className={` nc-ListingCarDetailPage `}>
-      {/* SINGLE HEADER */}
+    <div className="nc-ListingStayDetailPage">
+      {/*  HEADER */}
       <header className="rounded-md sm:rounded-xl">
-        <div className="relative grid grid-cols-4 gap-1 sm:gap-2">
+        <div className="relative grid grid-cols-3 sm:grid-cols-4 gap-1 sm:gap-2">
           <div
-            className="col-span-2 row-span-2 relative rounded-md sm:rounded-xl overflow-hidden cursor-pointer"
+            className="col-span-2 row-span-3 sm:row-span-2 relative rounded-md sm:rounded-xl overflow-hidden cursor-pointer "
             onClick={handleOpenModalImageGallery}
           >
             <img
-              src={PHOTOS[0]}
-              alt="0"
               className="absolute inset-0 object-cover rounded-md sm:rounded-xl w-full h-full"
+              src={PHOTOS[0]}
+              alt=""
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
             />
             <div className="absolute inset-0 bg-neutral-900 bg-opacity-20 opacity-0 hover:opacity-100 transition-opacity"></div>
           </div>
-
-          {/*  */}
-          <div
-            className="col-span-1 row-span-2 relative rounded-md sm:rounded-xl overflow-hidden cursor-pointer"
-            onClick={handleOpenModalImageGallery}
-          >
-            <img
-              className="absolute inset-0 object-cover rounded-md sm:rounded-xl w-full h-full"
-              src={PHOTOS[1]}
-              alt="1"
-              sizes="400px"
-            />
-            <div className="absolute inset-0 bg-neutral-900 bg-opacity-20 opacity-0 hover:opacity-100 transition-opacity"></div>
-          </div>
-
-          {/*  */}
-          {PHOTOS.filter((_, i) => i >= 2 && i < 4).map((item, index) => (
+          {PHOTOS.filter((_, i) => i >= 1 && i < 5).map((item, index) => (
             <div
               key={index}
               className={`relative rounded-md sm:rounded-xl overflow-hidden ${
-                index >= 2 ? "block" : ""
+                index >= 3 ? "hidden sm:block" : ""
               }`}
             >
-              <div className="aspect-w-4 aspect-h-3">
+              <div className="aspect-w-4 aspect-h-3 sm:aspect-w-6 sm:aspect-h-5">
                 <img
-                  className="absolute inset-0 object-cover w-full h-full rounded-md sm:rounded-xl "
+                  className="absolute inset-0 object-cover rounded-md sm:rounded-xl w-full h-full"
                   src={item || ""}
-                  alt="photos"
+                  alt=""
                   sizes="400px"
                 />
               </div>
@@ -490,30 +592,27 @@ const ListingCarDetail: FC<{}> = () => {
             </div>
           ))}
 
-          <div
-            className="absolute hidden md:flex md:items-center md:justify-center left-3 bottom-3 px-4 py-2 rounded-xl bg-neutral-100 text-neutral-500 cursor-pointer hover:bg-neutral-200 z-10"
+          <button
+            className="absolute hidden md:flex md:items-center md:justify-center left-3 bottom-3 px-4 py-2 rounded-xl bg-neutral-100 text-neutral-500 hover:bg-neutral-200 z-10"
             onClick={handleOpenModalImageGallery}
           >
-            <Squares2X2Icon className="h-5 w-5" />
-
+            <Squares2X2Icon className="w-5 h-5" />
             <span className="ml-2 text-neutral-800 text-sm font-medium">
               Show all photos
             </span>
-          </div>
+          </button>
         </div>
       </header>
 
-      {/* MAIn */}
+      {/* MAIN */}
       <main className=" relative z-10 mt-11 flex flex-col lg:flex-row ">
         {/* CONTENT */}
-        <div className="w-full lg:w-3/5 xl:w-2/3 space-y-8 lg:pr-10 lg:space-y-10">
+        <div className="w-full lg:w-3/5 xl:w-2/3 space-y-8 lg:space-y-10 lg:pr-10">
           {renderSection1()}
-          <div className="block lg:hidden">{renderSidebarDetail()}</div>
-          {renderSectionTienIch()}
           {renderSection2()}
           {renderSection3()}
+          {renderSection4()}
           <SectionDateRange />
-
           {renderSection5()}
           {renderSection6()}
           {renderSection7()}
@@ -521,21 +620,18 @@ const ListingCarDetail: FC<{}> = () => {
         </div>
 
         {/* SIDEBAR */}
-        <div className="block flex-grow mt-14 lg:mt-0">
-          {renderSidebarDetail()}
-          <div className="hidden lg:block mt-10 sticky top-28">
-            {renderSidebarPrice()}
-          </div>
+        <div className="hidden lg:block flex-grow mt-14 lg:mt-0">
+          <div className="sticky top-28">{renderSidebar()}</div>
         </div>
       </main>
     </div>
   );
 };
 
-export default function ListingCarDetailPage() {
+export default function KaanKujaDetail() {
   return (
     <DetailPagetLayout>
-      <ListingCarDetail />
+      <StayDetailPageContainer />
     </DetailPagetLayout>
   );
 }

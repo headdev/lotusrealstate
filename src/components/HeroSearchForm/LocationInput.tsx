@@ -14,8 +14,8 @@ export interface LocationInputProps {
 
 const LocationInput: FC<LocationInputProps> = ({
   autoFocus = false,
-  placeHolder = "Ubicación",
-  desc = "Barrio, zona o ciudad",
+  placeHolder = "Location",
+  desc = "Where are you looking for?",
   className = "nc-flex-1.5",
   divHideVerticalLineClass = "left-10 -right-0.5",
 }) => {

@@ -1,81 +1,31 @@
 {
-  "desarrollo": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-lotusapp-desarrollo-223450-authRole",
-      "UnauthRoleArn": "arn:aws:iam::528471089703:role/amplify-lotusapp-desarrollo-223450-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::528471089703:role/amplify-lotusapp-desarrollo-223450-authRole",
-      "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-lotusapp-desarrollo-223450-deployment",
-      "UnauthRoleName": "amplify-lotusapp-desarrollo-223450-unauthRole",
-      "StackName": "amplify-lotusapp-desarrollo-223450",
-      "StackId": "arn:aws:cloudformation:us-east-1:528471089703:stack/amplify-lotusapp-desarrollo-223450/3434fff0-340a-11ee-8fa6-0e35fad61303",
-      "AmplifyAppId": "dcr4xj6dfitfj"
-    },
-    "categories": {
-      "auth": {
-        "lotusapp2ee2f779": {}
-      },
-      "api": {
-        "lotusapp": {}
-      }
-    }
-  },
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-lotusapp-dev-121610-authRole",
-      "UnauthRoleArn": "arn:aws:iam::528471089703:role/amplify-lotusapp-dev-121610-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::528471089703:role/amplify-lotusapp-dev-121610-authRole",
+      "AuthRoleName": "amplify-lotusrealstate-dev-00126-authRole",
+      "UnauthRoleArn": "arn:aws:iam::528471089703:role/amplify-lotusrealstate-dev-00126-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::528471089703:role/amplify-lotusrealstate-dev-00126-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-lotusapp-dev-121610-deployment",
-      "UnauthRoleName": "amplify-lotusapp-dev-121610-unauthRole",
-      "StackName": "amplify-lotusapp-dev-121610",
-      "StackId": "arn:aws:cloudformation:us-east-1:528471089703:stack/amplify-lotusapp-dev-121610/7286cad0-3221-11ee-b9ff-0ad34512f611",
-      "AmplifyAppId": "d2cun3zud38szh"
+      "DeploymentBucketName": "amplify-lotusrealstate-dev-00126-deployment",
+      "UnauthRoleName": "amplify-lotusrealstate-dev-00126-unauthRole",
+      "StackName": "amplify-lotusrealstate-dev-00126",
+      "StackId": "arn:aws:cloudformation:us-east-1:528471089703:stack/amplify-lotusrealstate-dev-00126/a0a77fe0-3a5f-11ee-8aca-0a8c725d8313",
+      "AmplifyAppId": "d2ykvi4f1cadru"
     },
     "categories": {
-      "auth": {
-        "lotusapp9bc85fb3": {},
-        "lotusapp2ee2f779": {}
-      },
       "api": {
-        "lotusapp": {}
-      }
-    }
-  },
-  "alain": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-lotusapp-alain-02455-authRole",
-      "UnauthRoleArn": "arn:aws:iam::528471089703:role/amplify-lotusapp-alain-02455-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::528471089703:role/amplify-lotusapp-alain-02455-authRole",
-      "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-lotusapp-alain-02455-deployment",
-      "UnauthRoleName": "amplify-lotusapp-alain-02455-unauthRole",
-      "StackName": "amplify-lotusapp-alain-02455",
-      "StackId": "arn:aws:cloudformation:us-east-1:528471089703:stack/amplify-lotusapp-alain-02455/697006a0-3807-11ee-97db-0e2a0bfcc015",
-      "AmplifyAppId": "dcr4xj6dfitfj",
-      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-lotusapp-alain-02455-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
-    },
-    "categories": {
-      "auth": {
-        "lotusapp2ee2f779": {},
-        "userPoolGroups": {}
+        "lotusrealstate": {}
       },
-      "api": {
-        "lotusapp": {}
+      "auth": {
+        "lotusrealstate76a975ba": {}
       },
       "function": {
-        "lotusapp2ee2f779CustomMessage": {
-          "REDIRECTURL": " http://localhost:3000/login",
-          "EMAILSUBJECT": "Bienvenido a lotus porfavor valida tu cuenta ",
-          "EMAILMESSAGE": "te has registrado en lotusrealstate, necesitamos que valides tu cuenta, para que puedas quedar registrado en nuestro sistema ",
-          "deploymentBucketName": "amplify-lotusapp-alain-02455-deployment",
-          "s3Key": "amplify-builds/lotusapp2ee2f779CustomMessage-51344a7632485964786c-build.zip"
-        },
-        "lotusapp2ee2f779PostConfirmation": {
-          "GROUP": "clientes",
-          "deploymentBucketName": "amplify-lotusapp-alain-02455-deployment",
-          "s3Key": "amplify-builds/lotusapp2ee2f779PostConfirmation-6b50734b3572484d786e-build.zip"
+        "S3Triggerd0d49828": {
+          "deploymentBucketName": "amplify-lotusrealstate-dev-00126-deployment",
+          "s3Key": "amplify-builds/S3Triggerd0d49828-64755279346164454648-build.zip"
         }
+      },
+      "storage": {
+        "s317d2609f": {}
       }
     }
   }

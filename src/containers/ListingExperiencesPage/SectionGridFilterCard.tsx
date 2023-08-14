@@ -25,7 +25,7 @@ const SectionGridFilterCard: FC<SectionGridFilterCardProps> = ({
       data-nc-id="SectionGridFilterCard"
     >
       <Heading2
-        heading="Nuestros proyectos"
+        heading="Experiences in Tokyo"
         subHeading={
           <span className="block text-neutral-500 dark:text-neutral-400 mt-3">
             233 experiences
