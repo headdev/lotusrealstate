@@ -126,7 +126,7 @@ const PropertyCardH: FC<PropertyCardHProps> = ({
           <div className="flex w-full justify-between items-end">
             <StartRating reviewCount={reviewCount} point={reviewStart} />
             <span className="flex items-center justify-center px-3 py-2 border border-secondary-500 rounded leading-none text-base font-medium text-secondary-500">
-              {`${price},000`}
+              {`${price}`}
             </span>
             <Link to={`/property-detail/${id}`}>Ver más</Link>
           </div>
