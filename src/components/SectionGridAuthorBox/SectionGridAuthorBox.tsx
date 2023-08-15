@@ -28,7 +28,7 @@ const SectionGridAuthorBox: FC<SectionGridAuthorBoxProps> = ({
       data-nc-id="SectionGridAuthorBox"
     >
       <Heading desc="" isCenter>
-  Este es nuestro equipo
+  Nuestro equipo
       </Heading>
       <div className={`grid gap-6 md:gap-8 ${gridClassName}`}>
         {authors.map((author, index) =>
