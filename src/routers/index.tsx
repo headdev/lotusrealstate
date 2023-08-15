@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Page } from "./types";
 import ScrollToTop from "./ScrollToTop";
 import Footer from "shared/Footer/Footer";
-import PageHome from "containers/PageHome/PageHome";
+import PageHome from "containers/PageHome/PageHome2";
 import Page404 from "containers/Page404/Page404";
 import ListingStayPage from "containers/ListingStayPage/ListingStayPage";
 import ListingStayMapPage from "containers/ListingStayPage/ListingStayMapPage";
@@ -47,9 +47,9 @@ import PropertyDetail from "containers/ListingDetailPage/listing-stay-detail/Pro
 
 export const pages: Page[] = [
   //{ path: "/", exact: true, component: PageHome }, // home anulado
-  { path: "/", exact: true, component: ListingExperiencesMapPage },// home cambiado para listing experiences map 
-  { path: "/#", exact: true, component: PageHome },
-  { path: "/home-1-header-2", exact: true, component: PageHome },
+  { path: "/", exact: true, component: PageHome2 },// home cambiado para listing experiences map 
+  { path: "/#", exact: true, component: PageHome2 },
+  { path: "/home-2-header-2", exact: true, component: PageHome2 },
   { path: "/home-2", component: PageHome2 },
   { path: "/home-3", component: PageHome3 },
   //

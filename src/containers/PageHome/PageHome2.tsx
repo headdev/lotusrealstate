@@ -1,12 +1,17 @@
 import SectionSliderNewCategories from "components/SectionSliderNewCategories/SectionSliderNewCategories";
-import React, { useEffect } from "react";
+import React, { FC, useEffect, ReactNode } from "react";
 import SectionSubscribe2 from "components/SectionSubscribe2/SectionSubscribe2";
 import SectionOurFeatures from "components/SectionOurFeatures/SectionOurFeatures";
 import SectionHowItWork from "components/SectionHowItWork/SectionHowItWork";
 import BackgroundSection from "components/BackgroundSection/BackgroundSection";
 import { TaxonomyType } from "data/types";
 import SectionGridAuthorBox from "components/SectionGridAuthorBox/SectionGridAuthorBox";
-import SectionHero2 from "components/SectionHero2/SectionHero2";
+//import SectionHero2 from "components/SectionHero2/SectionHero2";
+import SectionHero2ArchivePage from "components/SectionHero2ArchivePage/SectionHero2ArchivePage";
+import HeroRealEstateSearchForm, { SearchRealEstateTab } from "components/HeroSearchForm/(real-estate-search-form)/HeroRealEstateSearchForm";
+import Heading from "components/Heading/Heading";
+
+
 //
 import logo1 from "images/logos/nomal/1.png";
 import logo1Dark from "images/logos/dark/1.png";
@@ -33,6 +38,15 @@ import rightImgPng from "images/our-features-2.png";
 
 import SectionGridFeatureProperty from "./SectionGridFeatureProperty";
 import SectionDowloadApp from "./SectionDowloadApp";
+
+interface PageHome2Props {
+  currentPage: "Buy" | "Rent"; 
+  currentTab?: SearchRealEstateTab; 
+}
+
+
+
+
 
 const DEMO_CATS_2: TaxonomyType[] = [
   {
@@ -82,8 +96,11 @@ const DEMO_CATS_2: TaxonomyType[] = [
   },
 ];
 
-function PageHome2() {
-  // CUSTOM THEME STYLE
+
+
+function PageHome2({currentPage}: PageHome2Props) {
+  const currentTab = "Buy"; // definir
+
   useEffect(() => {
     const $body = document.querySelector("body");
     if (!$body) return;
@@ -95,12 +112,45 @@ function PageHome2() {
 
   return (
     <div className="nc-PageHome2 relative overflow-hidden">
-      {/* GLASSMOPHIN */}
-      {/* <BgGlassmorphism /> */}
-
       <div className="container relative space-y-24 mb-24 lg:space-y-28 lg:mb-28">
-        <SectionHero2 className="" />
+        <SectionHero2ArchivePage
+          currentPage={currentPage}
+          currentTab={currentTab}
+        />
 
+
+        {/* SECTION */}
+        <SectionHowItWork
+          data={[
+            {
+              id: 1,
+              img: HIW1img,
+              imgDark: HIW1imgDark,
+              title: "Consultoria lotus",
+              desc: "Ofrecemos una consultoria dedicada a encontrar los mejores mecanismos de inversion, por lo pronto Bienes raices",
+            },
+            {
+              id: 2,
+              img: HIW2img,
+              imgDark: HIW2imgDark,
+              title: "Encontramos la mejor oportunidad",
+              desc: "Con ayuda de data AI, encontramos el mejor lugar para invertir, considerando aspectos como + tasa de ocupación, - costo por m2 & + Mayor por noche y mes reservado"  ,
+            },
+            {
+              id: 3,
+              img: HIW3img,
+              imgDark: HIW3imgDark,
+              title: "Ejecutamos ",
+              desc: "Nuestro equipo especializado, te ayudará a resolver dudas contables, legales, migratorias y acompañamiento hasta la entrega del proyecto",
+            },
+          ]}
+        />
+
+        
+<Heading isCenter desc="aliados estrategidos">
+       Estos son nuestros partners
+      </Heading>
+    {/*generar imagenes logos }
         {/* SECTION 1 */}
         <div className="ncSectionLogos grid grid-cols-3 lg:grid-cols-5 gap-5 sm:gap-16">
           <div className="flex items-end justify-center">
@@ -126,32 +176,6 @@ function PageHome2() {
           </div>
         </div>
 
-        {/* SECTION */}
-        <SectionHowItWork
-          data={[
-            {
-              id: 1,
-              img: HIW1img,
-              imgDark: HIW1imgDark,
-              title: "Smart search",
-              desc: "Name the area or type of home you are looking for the search bar. Our app will find you the perfect match.",
-            },
-            {
-              id: 2,
-              img: HIW2img,
-              imgDark: HIW2imgDark,
-              title: "Choose property",
-              desc: "From the number of options our app will provide, you can select any property that you like to explore.",
-            },
-            {
-              id: 3,
-              img: HIW3img,
-              imgDark: HIW3imgDark,
-              title: "Book you property",
-              desc: "Find a home or space from our search bar. Enter your specific location, property type and price range.",
-            },
-          ]}
-        />
 
         {/* SECTION */}
         <div className="relative py-16">
@@ -170,8 +194,8 @@ function PageHome2() {
           categories={DEMO_CATS_2}
           categoryCardType="card4"
           itemPerRow={4}
-          heading="Suggestions for discovery"
-          subHeading="Popular places to stay that Chisfis recommends for you"
+          heading="nuestros proyectos"
+          subHeading="estas son nuestros vehiculos de inversión"
           uniqueClassName="PageHome2_s1"
         />
 

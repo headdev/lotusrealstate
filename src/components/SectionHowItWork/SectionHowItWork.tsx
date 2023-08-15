@@ -47,9 +47,10 @@ const SectionHowItWork: FC<SectionHowItWorkProps> = ({
       className={`nc-SectionHowItWork  ${className}`}
       data-nc-id="SectionHowItWork"
     >
-      <Heading isCenter desc="Keep calm & travel on">
-        How it work
+      <Heading isCenter desc="Lotus proptech">
+      Como funciona 
       </Heading>
+      
       <div className="mt-20 relative grid md:grid-cols-3 gap-20">
         <img
           className="hidden md:block absolute inset-x-0 top-10"
